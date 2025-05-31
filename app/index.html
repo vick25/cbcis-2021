@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html data-translation="lang" data-translation-attr="lang">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="initial-scale=1.0,user-scalable=no,maximum-scale=1.0,width=device-width,shrink-to-fit=no">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"> -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Congo Basin Catchment Information System">
+    <meta name="author" content="CRREBaC">
+    <meta name="publisher" content="CRREBaC">
+    <meta name="rating" content="Safe For Kids">
+    <meta name="language" content="English">
+    <meta name="doc-type" content="NGO">
+    <meta name="doc-class" content="Living Document">
+    <meta name="doc-rights" content="Public Domain">
+    <meta name="robots" content="ALL">
+    <meta name="distribution" content="Global">
+    <meta name="classification" content="NGO">
+    <meta name="copyright" content="None">
+    <meta name="keywords"
+        content="Centre de Recherche en Ressources en Eau du Bassin du Congo,Congo Bassin Water Resources Research Center,CRREBaC,water,congo basin,cbcis,stream,central africa,comifac,geospatial data,geographic information system,GIS,mapping,maps,data">
+
+    <title data-translation="title"></title>
+
+    <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="css/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+    <!-- Load Leaflet css: http://leafletjs.com/ -->
+    <link rel="stylesheet" href="css/leaflet.css">
+    <!-- Measure -->
+    <link rel="stylesheet" href="css/leaflet-measure.css">
+    <!-- Ruler -->
+    <link rel="stylesheet" href="css/leaflet-ruler.css">
+    <!-- Grouped layer control -->
+    <link rel="stylesheet" href="css/leaflet.groupedlayercontrol.min.css">
+    <!-- Scale factor -->
+    <link rel="stylesheet" href="https://rawgit.com/MarcChasse/leaflet.ScaleFactor/master/leaflet.scalefactor.min.css">
+    <!-- Mouse position -->
+    <link rel="stylesheet" href="css/L.Control.MousePosition.css">
+    <!-- Overview mini map Plugin: https://github.com/Norkart/Leaflet-MiniMap -->
+    <link rel="stylesheet" href="css/Control.MiniMap.min.css">
+    <!-- Draw -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
+    <!-- BoxZoom -->
+    <link rel="stylesheet" href="css/L.Control.ZoomBox.css" />
+    <!-- Full screen -->
+    <link rel="stylesheet" href="css/Control.FullScreen.css">
+    <!-- Basemaps -->
+    <link rel="stylesheet" href="css/L.Control.Basemaps.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nbr" role="navigation">
+            <a href="https://www.crrebac.org/en_GB/" title="Congo Basin Catchment Information System" target="_blank">
+                <img src="images/logo/logo-cb-cis_mixted-crrebac_CRREBAC-CBCIS-LOGO.png" width="220" height=""
+                    class="d-inline-block align-top" alt="CB-CIS" loading="lazy">
+            </a>
+
+            <button id="sidebar-toggle-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
+                <span class="fa fa-search fa-lg visible-xs white"></span>
+            </button>
+
+            <button id="nav-btn" class="navbar-toggler pull-right" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon visible-xs"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html" data-target=".navbar-collapse.in"
+                            data-translation="navbar.maps"></a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./about/about.html" data-target=".navbar-collapse.in"
+                            data-translation="navbar.about"></a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="collapse" data-target=".navbar-collapse.in"
+                            id="about-btn" data-translation="navbar.about"></a>
+                    </li> -->
+
+                    <li class="nav-item d-none d-sm-block" id="hide-list-btn">
+                        <a class="nav-link" id="list-btn" href="#" data-toggle="collapse"
+                            data-target=".navbar-collapse.in" data-translation="navbar.catchment-list"></a>
+                    </li>
+                    <!-- <li class="nav-item hidden-xs">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#catchmentModal">Modal</a>
+                    </li> -->
+                </ul>
+
+                <!-- id="partner_logos" -->
+                <div class="navbar-brand ml-auto">
+                    <img src="images/logo/logo-for-cbcis_royal-society.png" width="91" height="47" alt="Royal-Society"
+                        class="d-inline-block align-top" loading="lazy">
+                    <img src="images/logo/logo-for-cbcis_aas.png" width="160" height="47" alt="African-Academy"
+                        class="d-inline-block align-top" loading="lazy">
+                    <img src="images/logo/logo-for-cbcis_unikin.png" width="150" height="47" alt="Unikin"
+                        class="d-inline-block align-top" loading="lazy">
+                </div>
+
+                <div class="form-inline my-2 my-lg-0">
+                    <select id="lang-switcher" class="form-control ml-auto" data-width="fit"
+                        onchange="selectLanguage(this);">
+                    </select>
+                </div>
+            </div>
+        </nav> <!-- /.navbar-collapse -->
+    </header>
+
+    <!-- Container -->
+    <div id="container">
+        <!-- Sidebar -->
+
+        <div id="sidebar" class="leaflet-control leaflet-prevent">
+            <div class="sidebar-wrapper">
+                <div class="card card-primary" id="features">
+                    <div class="card-header pane-heading">
+                        <h6 class="card-title">
+                            <label for="sidebar-hide-btn" data-translation="sidebar.catchment-names"></label>
+                            <button type="button" class="btn btn-xs btn-default pull-right" id="sidebar-hide-btn"><i
+                                    class="fa fa-chevron-left"></i></button>
+                        </h6>
+                    </div>
+                    <div class="card-body pane-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12">
+                                <input type="text" class="form-control search" data-translation="filter"
+                                    data-translation-attr="placeholder" />
+                            </div>
+                            <!--
+                            <div class="col-xs-4 col-md-4">
+                                <button type="button" class="btn btn-primary pull-right sort" data-sort="feature-name" id="sort-btn"><i class="fa fa-sort"></i>&nbsp;&nbsp;Sort</button>
+                            </div>
+-->
+                        </div>
+                    </div>
+                    <div class="sidebar-table">
+                        <table class="card-table table table-hover table-striped" id="feature-list">
+                            <thead hidden>
+                                <tr>
+                                    <th>Icon</th>
+                                <tr>
+                                <tr>
+                                    <th>Name</th>
+                                <tr>
+                                <tr>
+                                    <th>Chevron</th>
+                                <tr>
+                            </thead>
+                            <tbody class="list scrollDiv"></tbody>
+                        </table>
+                        <div class="card-body pane-body" id="footerCard">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12">
+                                    <label id="totalText" class="form-control"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map div -->
+        <div id="map">
+        </div>
+
+        <!-- Basic web-GIS functionalities  -->
+        <div class="leaflet-control leaflet-prevent leaflet-left basic-functions">
+            <div class="default-view btns" data-toggle="tooltip" title="Home (Zoom to layer)">
+                <i class="fas fa-home"></i>
+            </div>
+
+            <div class="full-screen btns" data-toggle="tooltip" title="Map tiles boundaries">
+                <i class="fas fa-map"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature modal -->
+    <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-primary" id="feature-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="feature-info"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        data-translation="button.close"></button>
+                </div>
+            </div> <!-- .modal-content -->
+        </div> <!-- .modal-dialog -->
+    </div>
+
+    <!-- Modal catchment -->
+    <div class="modal fade" id="catchmentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel"></h5>
+                    <!-- <i class="fa fa-comment"></i>&nbsp;&nbsp;<h6>View or add comments</h6> -->
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <ul class="nav nav-tabs nav-fill" id="catchmentTabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="#catchmentID-tab" href="#catchmentID"
+                                            data-toggle="tab" role="tab" aria-controls="about" aria-selected="true"
+                                            data-translation="catchment.identification"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#climate" id="#climate-tab" data-toggle="tab"
+                                            role="tab" aria-controls="contact" aria-selected="false"
+                                            data-translation="catchment.climate"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#physiographic" id="#physiographic-tab"
+                                            data-toggle="tab" role="tab" aria-controls="disclaimer"
+                                            aria-selected="false" data-translation="catchment.physio"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-warning" href="#hydrology" id="#hydrology-tab"
+                                            data-toggle="tab" role="tab" aria-controls="disclaimer"
+                                            aria-selected="false" data-translation="catchment.hydro"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#risk" id="#risk-tab" data-toggle="tab" role="tab"
+                                            aria-controls="disclaimer" aria-selected="false"
+                                            data-translation="catchment.risk"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-warning" href="#water" id="#water-tab" data-toggle="tab"
+                                            role="tab" aria-controls="disclaimer" aria-selected="false"
+                                            data-translation="catchment.water"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-warning" href="#info" id="#info-tab" data-toggle="tab"
+                                            role="tab" aria-controls="disclaimer" aria-selected="false"
+                                            data-translation="catchment.info"></a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="catchmentTabsContent">
+                                    <div class="tab-pane fade show active" id="catchmentID">
+                                        &nbsp;
+                                        <div class="card border-dark">
+                                            <div class="card-body">
+                                                <div id="catchmentID-info"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="climate">
+                                        &nbsp;
+                                        <div class="card border-dark">
+                                            <div class="card-body">
+                                                <div id="climate-info"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="physiographic">
+                                        &nbsp;<div class="card border-dark">
+                                            <div class="card-body">
+                                                <div id="physiographic-info"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="hydrology">
+                                        &nbsp;
+                                        <div class="card border-dark">
+                                            <div class="card-body">
+                                                <div id="hydrology-info"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="risk">
+                                        &nbsp;
+                                        <div class="card border-dark">
+                                            <div class="card-body">
+                                                <div id="risk-info"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="water">
+                                        &nbsp;
+                                        <div class="card border-dark">
+                                            <div class="card-body">
+                                                <div id="water-info"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="info">
+                                        &nbsp;
+                                        <div class="card border-dark">
+                                            <div class="card-body">
+                                                <div id="other-info">
+                                                    <div class='table-responsive'>
+                                                        <table id='tblContentInfo'
+                                                            class='table table-striped table-bordered table-sm table-hover'>
+                                                            <tr>
+                                                                <th data-translation='readtext.metadata'>Metadata</th>
+                                                                <td id="meta"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th data-translation='readtext.tech_note'>Technical
+                                                                    Notice</th>
+                                                                <td id="note"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th data-translation='readtext.pubs'>Publications</th>
+                                                                <td id="pubs"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th data-translation='readtext.ext_links'>External Links
+                                                                </th>
+                                                                <td id="links"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div id="map2" class="img-thumbnail"></div>
+                                <div id="charts">
+                                    <div class="row chart-heading">
+                                        <div class="col-12 text-center ">
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons" role="group"
+                                                aria-label="Chart type">
+                                                <label class="btn btn-secondary">
+                                                    <input type="radio" name="options" id="bar" checked> Bar
+                                                </label>
+                                                <label class="btn btn-secondary active">
+                                                    <input type="radio" name="options" id="line"> Line
+                                                </label>
+                                                <label class="btn btn-secondary">
+                                                    <input type="radio" name="options" id="pie"> Pie
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row" class="hidden rightButton">
+                                        <div class="col-12">
+                                            <div class="chart-container">
+                                                <!-- <div class="card">
+                                                    <div class="card-body"> -->
+                                                <canvas id="chart"></canvas>
+                                            </div>
+                                            <!-- </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        data-translation="button.close"></button>
+                </div>
+            </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+    </div> <!-- /.modal -->
+
+    <!-- Google analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169183823-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-169183823-3');
+
+    </script>
+
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS and Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+    <!-- Leaflet -->
+    <script src="js/leaflet.js"></script>
+    <!-- Leaflet Geoserver -->
+    <script src="js/L.Geoserver.js"></script>
+    <!-- Turfjs-->
+    <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
+    <!-- Charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
+    <!-- Measure -->
+    <script src="js/leaflet-measure.js"></script>
+    <!-- BoxZoom -->
+    <script src="js/L.Control.ZoomBox.min.js"></script>
+    <!-- Ruler -->
+    <!-- <script src="js/leaflet-ruler.js"></script> -->
+    <!-- Base Maps -->
+    <script src="js/L.Control.Basemaps.js"></script>
+    <!-- Leaflet VectorGrid -->
+    <!-- <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>-->
+    <script src="js/Leaflet.VectorGrid.js"></script>
+    <!-- Overview mini map Plugin: https://github.com/Norkart/Leaflet-MiniMap -->
+    <script src="js/Control.MiniMap.min.js"></script>
+    <!-- AutoLinker -->
+    <script src="js/Autolinker.min.js"></script>
+    <!-- D3.js csv -->
+    <script src="js/d3.min.js"></script>
+    <!-- <script src="https://unpkg.com/d3@6.2.0/dist/d3.min.js"></script> -->
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <!-- Draw -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <!-- Locate control -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.72.0/L.Control.Locate.min.js"></script>
+    <!-- Grouped Layer -->
+    <script src="js/leaflet.groupedlayercontrol.min.js" type="text/javascript"></script>
+    <!-- Coordinates -->
+    <script src="js/L.Control.MousePosition.js" type="text/javascript"></script>
+    <!-- Print -->
+    <script src="js/leaflet.browser.print.min.js"></script>
+    <!-- Scale -->
+    <script src="https://rawgit.com/MarcChasse/leaflet.ScaleFactor/master/leaflet.scalefactor.min.js"></script>
+    <!-- Graticule-->
+    <script src="js/Leaflet.Graticule.js"></script>
+    <!-- Full screen -->
+    <script src="js/Control.FullScreen.js"></script>
+    <!-- Leaflet hash -->
+    <script src="js/leaflet-hash.js"></script>
+    <!-- Spin -->
+    <script src="js/spin.min.js" charset="utf-8"></script>
+    <script src="js/leaflet.spin.min.js"></script>
+
+    <!-- Language -->
+    <script src="js/lwcTranslator.min.js"></script>
+    <script>
+        if (!window.localStorage['defaultLanguage'])
+            window.localStorage['defaultLanguage'] = 'en-UK';
+
+        $('html').lwcTranslator({
+            languageSettingsFile: 'assets/config/languages.json',
+            languageFolderPath: 'assets/config/languages/',
+            attributes: {
+                textTranslation: 'data-translation',
+                attrTranslation: 'data-translation-attr'
+            },
+            async: true,
+            paragraphSupport: true,
+            defaultLanguage: window.localStorage['defaultLanguage'],
+            onLanguageSettingsLoaded: function (settings) {
+                for (let i = 0; i < settings.length; i++) {
+                    if (settings[i].filename == window.localStorage['defaultLanguage'])
+                        $('select').append('<option value="' + settings[i].filename + '" selected>' + settings[i].name + '</option>');
+                    else
+                        $('select').append('<option value="' + settings[i].filename + '">' + settings[i].name + '</option>');
+                }
+
+                $('#lang-switcher').change(function () {
+                    window.localStorage['defaultLanguage'] = $(this).val();
+                    window.location.reload();
+                });
+            }
+        });
+
+    </script>
+
+    <!-- <script src="js/charts.js"></script> -->
+    <!-- My custom JS -->
+    <script src="js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+docker/
+datacemic/
+db/
+my_docker.txt
+data.tar.gz
+
+**/docker-compose*
+**/Dockerfile*

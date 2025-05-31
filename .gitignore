@@ -1,0 +1,56 @@
+# Docker specific files
+.docker/
+docker/
+docker-compose.override.yml
+docker-compose.*.yml
+!docker-compose.yml
+docker-*.yaml
+
+# Database files
+db/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+build/
+dist/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# Node modules (if using Node.js with Docker)
+node_modules/
+
+# Local development files
+*.local
+
+# Text and archive files
+*.txt
+*.tar
+
+# CSV files
+*.csv

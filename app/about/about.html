@@ -1,0 +1,587 @@
+<!doctype html>
+<html data-translation="lang" data-translation-attr="lang" class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="initial-scale=1.0,user-scalable=no,maximum-scale=1.0,width=device-width,shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Congo Basin Catchment Information System">
+    <meta name="author" content="CRREBaC">
+    <meta name="publisher" content="CRREBaC">
+    <meta name="rating" content="Safe For Kids">
+    <meta name="language" content="English">
+    <meta name="doc-type" content="NGO">
+    <meta name="doc-class" content="Living Document">
+    <meta name="doc-rights" content="Public Domain">
+    <meta name="robots" content="ALL">
+    <meta name="distribution" content="Global">
+    <meta name="classification" content="NGO">
+    <meta name="copyright" content="None">
+    <meta name="keywords"
+        content="Centre de Recherche en Ressources en Eau du Bassin du Congo,Congo Bassin Water Resources Research Center,CRREBaC,water,congo basin,cbcis,stream,central africa,comifac,geospatial data,geographic information system,GIS,mapping,maps,data">
+
+    <title data-translation="title"></title>
+
+    <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="../css/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- TOC -->
+    <link rel="stylesheet" href="../css/screen.css" media="screen" charset="utf-8" />
+    <link href="../css/bootstrap-toc.css" rel="stylesheet">
+
+    <!-- font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column h-100" data-spy="scroll" data-target="#toc">
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top sticky-top" role="navigation">
+            <a href="https://www.crrebac.org/en_GB/" title="Congo Basin Catchment Information System" target="_blank">
+                <img src="../images/logo/logo-cb-cis_mixted-crrebac_CRREBAC-CBCIS-LOGO.png" width="220" height=""
+                    class="d-inline-block align-top" alt="CB-CIS" loading="lazy">
+            </a>
+
+            <button id="nav-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon visible-xs"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item" id="hide-list-btn">
+                        <a class="nav-link" id="maps-btn" href="../index.html" data-target=".navbar-collapse.in"
+                            data-translation="navbar.maps"></a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./about.html" data-target=".navbar-collapse.in" id="home-btn"
+                            data-translation="navbar.about"></a>
+                    </li>
+                </ul>
+
+                <!-- id="partner_logos" -->
+                <div class="navbar-brand ml-auto">
+                    <img src="../images/logo/logo-for-cbcis_royal-society.png" width="91" height="47"
+                        alt="Royal-Society" class="d-inline-block align-top" loading="lazy">
+                    <img src="../images/logo/logo-for-cbcis_aas.png" width="160" height="47" alt="African-Academy"
+                        class="d-inline-block align-top" loading="lazy">
+                    <img src="../images/logo/logo-for-cbcis_unikin.png" width="150" height="47" alt="Unikin"
+                        class="d-inline-block align-top" loading="lazy">
+                </div>
+
+                <div class="form-inline my-2 my-lg-0">
+                    <select id="lang-switcher" class="form-control ml-auto" data-width="fit"
+                        onchange="selectLanguage(this);">
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <nav id="toc" data-toggle="toc" class="toc sticky-top"></nav>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                    <h1 data-toc-skip>
+                        CB-CIS <small>Congo Basin Catchment Information System</small>
+                    </h1>
+
+                    <p>Outil de Gestion Intégréé des Ressources en Eau du Bassin du Congo</p>
+
+                    <p>Système d’informations sur <span class="font-weight-bold">1740</span> sous-unités du Bassin du
+                        Congo
+                    <pre
+                        class="text-success">> Identification > Climat > Hydrologie > Caractéristiques physiographiques > Usage de l’eau > Risques et plus encore ...</pre>
+                    </p>
+
+                    <section>
+                        <h1 id="bassin-versant" class="text-primary">Le bassin versant</h1>
+
+                        <div class="row no-gutters bg-light position-relative mb-3">
+                            <div class="col-md-6 mb-md-0 p-md-4">
+                                <img src="../images/bassin_versant.png" class="w-100  rounded img-fluid img-thumbnail"
+                                    alt="Bassin versant">
+                            </div>
+                            <div class="col-md-6 position-static p-4 pl-md-0">
+                                <p>Un bassin versant représente un territoire géographique qui assure le drainage des
+                                    cours
+                                    d’eau depuis leurs sources jusqu’au point de leur sortie appelé exutoire.</p>
+
+                                <p>Selon le degré de développement et de hiérarchisation du réseau hydrographique, le
+                                    bassin
+                                    versant peut-être classé en sous bassins ou unité de drainage de différents ordres
+                                    d’importance
+                                    primaire, secondaire, tertiaire, etc., qui constituent donc les unités de
+                                    prédilection
+                                    pour la
+                                    gestion de l’eau au regard de différents usages qui en émergent.</p>
+
+                                <p>Le bassin versant est l’unité naturelle de production de l’eau, permettant ainsi le
+                                    maintien de
+                                    plusieurs services des ressources en eau, notamment : alimentation en eau potable et
+                                    assainissement,
+                                    production agricole et énergétique, transport par navigation, maintien de la
+                                    biodiversité, etc.
+                                    Ceci
+                                    se traduit par les fonctions de subsistance, commerciales et environnementales à
+                                    l’échelle d’un
+                                    bassin versant.</p>
+                            </div>
+                        </div>
+
+                        <p>La nécessité de mettre en place un cadre de classification des sous bassins est évidente dans
+                            le
+                            Bassin du Congo à cause de ses
+                            hétérogénéités, de sa nature non jaugée et des besoins pressants d’utilisation des
+                            ressources en
+                            eau. Ces besoins comprennent la quantification des approvisionnements et des demandes
+                            actuels et
+                            futurs, qui incluent également les impacts
+                            des changements futurs associés au climat et à l’occupation des terres, ainsi que les
+                            politiques
+                            opérationnelles des ressources en eau. Ce besoin est également motivé par de nombreuses
+                            préoccupations
+                            de gestion des ressources en eau à l’échelle du bassin, notamment les initiatives de
+                            transfert
+                            d’eau
+                            pour alimenter les zones arides.</p>
+
+                        <p>Cette classification initie la mise en oeuvre de la Gestion Intégrée des Ressources en Eau
+                            (GIRE)
+                            dans le Bassin du Congo, qui peut être définie comme un processus systématique pour le
+                            développement
+                            durable, l’attribution et le suivi de l’utilisation des ressources en eau dans le contexte
+                            des
+                            objectifs sociaux, économiques et environnementaux.
+                            L’approche GIRE vise à améliorer l’efficacité et la coopération intersectorielles à tous les
+                            niveaux
+                            en matière d’aménagement et gestion durables des ressources en eau, y compris des
+                            interventions
+                            sectorielles spécifiques.</p>
+                    </section>
+
+                    <h1 id="bassin_versant_congo" class="text-primary">Le bassin versant du Congo</h1>
+
+                    <div class="row no-gutters bg-light position-relative mb-3">
+                        <div class="col-md-6 position-static p-4 pl-md-2">
+                            <p>Le Bassin du Congo s’étend sur une superficie d’environ 3,7 millions de km2 et inclut
+                                neuf
+                                pays, dont le 2/3 de la superficie
+                                totale est
+                                détenu par la RD Congo. Avec son module moyen annuel de 41000 m3/s à l’exutoire, le
+                                Bassin
+                                du Congo
+                                est le deuxième plus grand bassin fluvial du monde après celui de l’Amazone. Avec près
+                                de
+                                52% du
+                                volume total d’eau douce de l’Afrique, le Bassin du Congo détient un potentiel
+                                hydraulique
+                                élevé
+                                pour le développement de multiples biens et services des ressources en eau, nécessaires
+                                à
+                                l’expansion économique a l’échelle régionale.</p>
+
+                            <p>Le Bassin du Congo émerge ainsi comme un élément important dans la coopération régionale
+                                pour
+                                faire
+                                face aux questions de pénurie d’eau et assurer la résilience des populations dans le
+                                contexte de
+                                changement climatique.</p>
+                        </div>
+                        <div class="col-md-6 mb-md-0 p-md-4">
+                            <img src="../images/bassin.png" class="w-100 rounded img-fluid img-thumbnail"
+                                alt="Congo Basin">
+                        </div>
+                    </div>
+
+                    <h1 id="defis" class="text-primary" data-toc-text="Les défis de gestion durable">Les défis de
+                        gestion
+                        durable des ressources
+                        en eau dans le Bassin du Congo</h1>
+
+                    <section class="mb-3">
+                        <p class="mb-0">La gestion durable des ressources en eau dans le Bassin du Congo
+                            est une question cruciale, mais les ressources techniques disponibles sont presque
+                            toujours insuffisantes pour en élaborer des stratégies. Dans le Bassin du Congo, les besoins
+                            de gestion et d’aménagement des ressources en eau sont énormes. Les demandes en eau ne sont
+                            pas seulement attendues de neuf pays riverains qui constituent le Bassin du Congo, mais
+                            aussi d’autres régions de l’Afrique en pénurie
+                            d’eau.
+                            Le défi stratégique pour l’avenir est, par conséquent, celui de garantir l’eau en quantité
+                            et qualité suffisantes en vue de satisfaire les demandes concurrentielles croissantes pour
+                            les besoins agricoles, commerciaux, domestiques, énergétiques, environnementaux et
+                            industriels.
+                            Cependant, il est difficile de relever ce défi en l’absence d’un système d’information
+                            hydrologique fiable à l’échelle spatiale et temporelle appropriée « unité de gestion des
+                            ressources en eau » pour la prise de décision. Bien que nous soyons, en une certaine mesure,
+                            conscients de la menace qui pèse sur l’eau dans le Bassin du Congo, et par conséquent sur la
+                            vie, force est de constater
+                            que les efforts appropriés pour y faire face demeurent encore disparates. A cette
+                            difficulté, s’ajoute également l’absence d’une interface de connaissance sur la dynamique de
+                            l’eau, sa distribution dans le temps et l’espace, les
+                            interactions dont elle fait l’objet ainsi que la façon dont nos efforts devraient être
+                            coordonnés pour minimiser sa dégradation et assurer sa durabilité. Il y a donc un besoin
+                            urgent de mettre en place un système d’information sur les ressources en eau du Bassin du
+                            Congo, capable de promouvoir l’accès amélioré aux ressources disponibles, planifier les
+                            investissements, et répondre aux questions de l’heure sur les enjeux de la sécurité de
+                            l’eau, notamment le transfert d’eau, le changement climatique et risques des catastrophes
+                            naturelles, la pollution et disparition des cours d’eau, l’ accès à l’eau potable et
+                            l’assainissement, la navigation sécurisée pour l’échange des biens et des services, la
+                            sécurité alimentaire et énergétique.
+                        </p>
+                    </section>
+
+                    <h1 id="quid" class="text-primary">Quid de CB-CIS ?</h1>
+
+                    <h4><em><a href="../index.html" class="text-danger">https://cbcis.info</a></em>
+                    </h4>
+
+                    <p>CB-CIS (de l’anglais : Congo Basin Catchment Information
+                        System) est une interface de connaissance qui fournit
+                        des informations de haute portée scientifique et en temps
+                        quasi réel sur la structure, les processus et les fonctions
+                        des ressources en eau à l’échelle des sous bassins versants,
+                        mieux « unité de gestion des ressources en eau », ainsi que
+                        sur les impacts des changements dans l’environnement
+                        physique et la société.</p>
+
+                    <p>CB-CIS est un outil de planification qui sectorise le Bassin
+                        du Congo en unités de gestion des ressources en eau et rend
+                        disponible les informations adéquates, nécessaires à la
+                        Gestion Intégrée des Ressourcées en Eau à l’échelle de ces
+                        unités.</p>
+
+                    <p>CB-CIS fournit des lignes directrices cohérentes pour faciliter la résilience des communautés
+                        face
+                        aux effets néfastes des changements environnementaux.</p>
+
+                    <p>CB-CIS s’aligne en appui à la stratégie 2020-2030 du secteur de l’eau en République démocratique
+                        du
+                        Congo, et l’agenda 2063 de l’Union Africaine dans le secteur de l’eau.</p>
+
+                    <p>CB-CIS est le premier système d’information sur les ressources en eau dans Bassin du Congo.</p>
+
+                    <h1 id="structure" class="text-primary" data-toc-text="Structure des informations">Structure des
+                        informations dans CB-CIS 1.0
+                    </h1>
+
+                    <div class="row no-gutters bg-light position-relative mb-3">
+                        <div class="mb-md-0 p-md-2">
+                            <img src="../images/data-structure-cbcis.jpg" class="w-100 rounded img-fluid img-thumbnail"
+                                alt="Structure">
+                        </div>
+                    </div>
+
+                    <h1 id="benefices" class="text-primary">Bénéfices avec CB-CIS</h1>
+
+                    <p>Les bénéfices procurés par CB-CIS sont énormes,
+                        du point de vue scientifique et de gestion. Il
+                        permet de :</p>
+
+                    <ul>
+                        <li>
+                            <p>Améliorer les connaissances scientifiques sur la
+                                dynamique du système des ressources en eau du
+                                Bassin du Congo, leur distribution dans le temps
+                                et l’espace, les interactions dont elles font l’objet ;</p>
+                        </li>
+                        <li>
+                            <p>Fournir un cadre des mesures pour orienter
+                                les investigations hydrologiques, et rendre
+                                disponibles les informations là où les mesures
+                                au sol sont inexistantes ou quasi impossibles
+                                à obtenir, ce qui permettra de vérifier les
+                                hypothèses et de développer de nouvelles
+                                approches prédictives et robustes pour traiter les
+                                questions de gestion de l’eau dans des conditions
+                                des changements environnementaux ;</p>
+                        </li>
+                        <li>
+                            <p>Inventorier les ressources disponibles à l’échelle
+                                locale ou unité réduite de gestion, évaluer
+                                leurs potentialités ou leur valeur économique,
+                                et orienter les investissements pour améliorer
+                                l’accès aux services des ressources en eau, et
+                                procéder à des analyses sur des régions selon
+                                leurs potentialités et aussi leur sensibilité aux
+                                perturbations naturelles et anthropiques (gage
+                                des pratiques rationnelles de conservation et
+                                gestion des ressources en eau) ;</p>
+                        </li>
+                        <li>
+                            <p>Fournir un cadre de dialogue entre parties
+                                prenantes pour la gestion de l’eau par unité
+                                réduite ou sous bassin, où les comités de
+                                gestion de l’eau à l’échelle des sous bassins
+                                sont établis et jouent un rôle prépondérant
+                                dans l’approvisionnement des services et la
+                                conservation des ressources ;</p>
+                        </li>
+                        <li>
+                            <p>Aider les parties à établir un langage commun et
+                                une communauté de pratique pour les questions
+                                communes de gestion et d’aménagement dans le
+                                Bassin du Congo ;</p>
+                        </li>
+                        <li>
+                            <p>Donner des réponses fiables aux enjeux de
+                                l’heure sur la sécurité de l’eau dans le Bassin
+                                du Congo, notamment : le transfert d’eau,
+                                le changement climatique et les risques des
+                                catastrophes naturelles, la qualité de l’eau et la
+                                pollution des cours d’eau, et l’accès amélioré aux
+                                services des ressources en eau (besoins agricoles,
+                                commerciaux, domestiques, énergétiques,
+                                environnementaux et industriels), tout en
+                                fournissant des lignes directrices cohérentes pour
+                                permettre la résilience de la société.</p>
+                        </li>
+                    </ul>
+
+                    <h1 id="impact" class="text-primary">Impact de CB-CIS</h1>
+
+                    <p>L’impact attendu de cet outil est large, car il contribuera à l’élaboration des politiques et
+                        stratégies de gestion de l’eau, et la mise en oeuvre des projets de planification et
+                        d’aménagement
+                        des ressources en eau dont la faisabilité était rendue difficile par le manque d’informations
+                        adéquates. Il contribuera également à orienter les investissements, d’accroître l’efficience
+                        économique pour le développement des ressources en eau, éviter la redondance des actions,
+                        maximiser
+                        les avantages socio-économiques et soutenir le développement durable.</p>
+
+                    <p><img src="../images/meeting.png" class="rounded img-fluid img-thumbnail" alt="meeting"></p>
+
+                    <h1 id="users" class="text-primary">Utilisateurs de CB-CIS</h1>
+
+                    <p>Cette interface de connaissance permettra à un large éventail d’utilisateurs, notamment les
+                        institutions académiques et de recherche, les institutions gouvernementales et le secteur privé,
+                        les
+                        industries, les investisseurs, les organisations des bassins versants et des ONG, d’accéder
+                        facilement à des informations de haute qualité pour guider et éclairer la prise de décision de
+                        gestion intégrée des ressources en eau à l’échelle locale et transfrontalière.</p>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mx-auto mb-2">
+                                    <img src="../images/electricite.png" class="rounded img-fluid img-thumbnail"
+                                        alt="Hydroelectricité">
+                                    <div
+                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
+                                        <p class="text-warning font-weight-bold">Hydroelectricité</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mx-auto mb-2">
+                                    <img src="../images/agriculture.png" class="rounded img-fluid img-thumbnail"
+                                        alt="Agriculture">
+                                    <div
+                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
+                                        <p class="text-warning font-weight-bold">Agriculture</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mx-auto mb-2">
+                                    <img src="../images/domestique.png" class="rounded img-fluid img-thumbnail"
+                                        alt="Usage domestique">
+                                    <div
+                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
+                                        <p class="text-warning font-weight-bold">Usage domestique</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <div class="mx-auto mb-2">
+                                    <img src="../images/peche.png" class="rounded img-fluid img-thumbnail" alt="Peche">
+                                    <div
+                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
+                                        <p class="text-warning font-weight-bold">Pêche</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mx-auto mb-2">
+                                    <img src="../images/environnement.png" class="rounded img-fluid img-thumbnail"
+                                        alt="Environnement">
+                                    <div
+                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
+                                        <p class="text-warning font-weight-bold">Environnement</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mx-auto mb-2">
+                                    <img src="../images/transport.png" class="rounded img-fluid img-thumbnail"
+                                        alt="Transport">
+                                    <div
+                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
+                                        <p class="text-warning font-weight-bold">Transport</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 id="developpeur">Développeur</h2>
+
+                    <p>CB-CIS est développé par le Centre de Recherche en Ressources en Eau du Bassin du Congo
+                        (<a href="https://www.crrebac.org/en_GB/" target="_blank">CRREBaC</a>),
+                        avec l’appui financier du programme de recherche
+                        FLAIR (Future Leader African Independent Researcher) de la Société Royale de Grande Bretagne et
+                        de
+                        l’Académie Africaine des Sciences.</p>
+
+                    <p>Les concepts et les méthodes utilisés pour développer CB-CIS sont présentés dans la publication
+                        de
+                        <span class="font-weight-bold">Tshimanga <em>et al.</em> (2020)</span> intitulée :
+                    <div class="shadow p-3 mb-5 bg-white rounded">
+                        <div class="p-3 mb-2 bg-light text-dark user-select-all"><span class="font-weight-bold">«
+                                Vers un cadre de classification des sous-bassins versants pour la prévision hydrologique
+                                et
+                                la
+                                gestion des ressources en eau dans le bassin non jaugé du fleuve Congo : Une approche a
+                                priori
+                                »</span>
+                            American Geophysical Union – AGU Willey special issue <em>“Congo Basin Hydrology, Climate,
+                                and
+                                Biogeochemistry : A Foundation for the Future”</em>,
+                            publisher “Wiley-AGU”, ISBN “9781119656975”. Editors: Alsdorf, D., Tshimanga, R.M, Moukandi,
+                            G,N. doi.org/10.1002/essoar.10505549.1
+                        </div>
+                        <footer class="blockquote-footer"><a
+                                href="../assets/docs/2020-Feb-CH-1205.R1_Proof_hi_Sept_2020.pdf" target="_blank">Click
+                                here to download (PDF,7.78Mb)</a></footer>
+                    </div>
+                    </p>
+
+                    <h2 id="framework">Cadre conceptuel</h2>
+
+                    <div class="card mb-3">
+                        <div class="card-body text-center">
+                            <figure class="figure">
+                                <img class="figure-img img-fluid rounded" alt="Conceptual framework"
+                                    data-translation="framework.source" data-translation-attr="src">
+                                <figcaption class="figure-caption text-right font-italic"
+                                    data-translation="framework.figure"></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <h1 id="etapes" class="text-primary">Prochaines étapes de développement</h1>
+
+                    <p>Dans la deuxième phase du développement de CBCIS, <a href="https://www.crrebac.org/en_GB/"
+                            target="_blank">CRREBaC</a>
+                        collabore avec les partenaires tels que le
+                        Ministère du Plan et le Comité d’Actions de l’Eau, Hygiène et Assainissement (CNAEHA) de la RDC
+                        ;
+                        les Organisations de Bassin Versant ; le laboratoire LEGOS, CNES et IRD en France ; les
+                        Universités
+                        Bristol et Leeds au Royaume Uni ; UNESCO. Les prochaines étapes incluent :
+                    </p>
+
+                    <p class="text-center">
+                        <img src="../images/etapes.png" alt="Etapes prochaines" class="rounded img-fluid img-thumbnail">
+                    </p>
+
+                    <footer>
+                        <div class="alert alert-danger mb-5" role="alert">
+                            <strong data-translation="about.disclaimer"></strong>&nbsp;&nbsp;<span
+                                data-translation="disclaimer.text"></span>
+                        </div>
+                        <!-- Contact -->
+                        <div class="clearfix">
+                            <div class="text-center">
+                                &#169; 2020 - <span id="year"></span>
+                                <strong>CRREBaC</strong> <br> Université de Kinshasa <br> Bâtiment
+                                FOGRN BC <br>
+                                Kinshasa
+                                <br> Democratic Republic of
+                                the Congo <br>
+                                <abbr title="Phone">P:</abbr> (+243) 852 780 555
+                                <address>
+                                    <abbr title="Mail">M:</abbr>
+                                    <a href="mailto:crrebac@crrebac.org">crrebac@crrebac.org</a>
+                                </address>
+                                <!-- <a href="https://www.crrebac.org/en_GB/" target="_blank">crrebac@crrebac.org</a> -->
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Language -->
+    <script src="../js/lwcTranslator.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+    <!-- TOC JS -->
+    <script src="../js/bootstrap-toc.js"></script>
+
+    <!-- Leaflet -->
+    <script src="../js/leaflet.js"></script>
+
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+
+        if (!window.localStorage['defaultLanguage'])
+            window.localStorage['defaultLanguage'] = 'en-UK';
+
+        $('html').lwcTranslator({
+            languageSettingsFile: '../assets/config/languages.json',
+            languageFolderPath: '../assets/config/languages/',
+            attributes: {
+                textTranslation: 'data-translation',
+                attrTranslation: 'data-translation-attr'
+            },
+            async: true,
+            paragraphSupport: true,
+            defaultLanguage: window.localStorage['defaultLanguage'],
+            onLanguageSettingsLoaded: function (settings) {
+                for (let i = 0; i < settings.length; i++) {
+                    if (settings[i].filename == window.localStorage['defaultLanguage'])
+                        $('select').append('<option value="' + settings[i].filename + '" selected>' + settings[i].name + '</option>');
+                    else
+                        $('select').append('<option value="' + settings[i].filename + '">' + settings[i].name + '</option>');
+                }
+
+                $('#lang-switcher').change(function () {
+                    window.localStorage['defaultLanguage'] = $(this).val();
+                    window.location.reload();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

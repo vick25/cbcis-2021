@@ -1,0 +1,11 @@
+[
+    {
+        "name": "En",
+        "filename": "en-UK",
+        "icon": "gb.svg"
+  }, {
+        "name": "Fr",
+        "filename": "fr-FR",
+        "icon": "fr.svg"
+  }
+]
