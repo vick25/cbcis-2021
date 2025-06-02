@@ -930,7 +930,7 @@ const init = () => {
 
     let hash = L.hash(map);
 
-    map.attributionControl.setPrefix('<a href="https://www.crrebac.org/en_GB/" target="_blank">© CRREBaC</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; vick25');
+    map.attributionControl.setPrefix(`<a href="https://www.crrebac.org/en_GB/" target="_blank">© CRREBaC</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="mailto:vickadiata@gmail.com">vick25</a>`);
 
     /* Map create panes */
     map.createPane('catchmentPane');
