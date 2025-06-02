@@ -31,10 +31,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <!-- font-awesome  -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Load Leaflet css: http://leafletjs.com/ -->
     <link rel="stylesheet" href="css/leaflet.css">
@@ -199,17 +203,17 @@
     <!-- Feature modal -->
     <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-primary" id="feature-title"></h4>
+            <div class="modal-content" style="border-color: var(--border-color); background-color: var(--light-neutral-bg);">
+                <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
+                    <h4 class="modal-title" id="feature-title" style="color: var(--primary-color); font-family: var(--heading-font);"></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true" style="color: var(--dark-text-color);">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="feature-info"></div>
-                <div class="modal-footer">
+                <div class="modal-body" id="feature-info" style="font-family: var(--body-font); color: var(--dark-text-color);"></div>
+                <div class="modal-footer" style="border-top: 1px solid var(--border-color); background-color: var(--light-neutral-bg);">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        data-translation="button.close"></button>
+                        data-translation="button.close" style="background-color: var(--secondary-color); border-color: var(--secondary-color); color: var(--dark-text-color);">Close</button>
                 </div>
             </div> <!-- .modal-content -->
         </div> <!-- .modal-dialog -->
@@ -219,19 +223,19 @@
     <div class="modal fade" id="catchmentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalLabel"></h5>
+            <div class="modal-content" style="border-color: var(--border-color); background-color: var(--light-neutral-bg);">
+                <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
+                    <h5 class="modal-title" id="modalLabel" style="font-family: var(--heading-font); color: var(--primary-color);"></h5>
                     <!-- <i class="fa fa-comment"></i>&nbsp;&nbsp;<h6>View or add comments</h6> -->
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true" style="color: var(--dark-text-color);">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="font-family: var(--body-font); color: var(--dark-text-color);">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-8">
-                                <ul class="nav nav-tabs nav-fill" id="catchmentTabs">
+                                <ul class="nav nav-tabs nav-fill mb-3" id="catchmentTabs"> <!-- Added mb-3 for spacing -->
                                     <li class="nav-item">
                                         <a class="nav-link active" id="#catchmentID-tab" href="#catchmentID"
                                             data-toggle="tab" role="tab" aria-controls="about" aria-selected="true"
@@ -248,7 +252,7 @@
                                             aria-selected="false" data-translation="catchment.physio"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-warning" href="#hydrology" id="#hydrology-tab"
+                                        <a class="nav-link" href="#hydrology" id="#hydrology-tab"
                                             data-toggle="tab" role="tab" aria-controls="disclaimer"
                                             aria-selected="false" data-translation="catchment.hydro"></a>
                                     </li>
@@ -258,87 +262,81 @@
                                             data-translation="catchment.risk"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-warning" href="#water" id="#water-tab" data-toggle="tab"
+                                        <a class="nav-link" href="#water" id="#water-tab" data-toggle="tab"
                                             role="tab" aria-controls="disclaimer" aria-selected="false"
                                             data-translation="catchment.water"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-warning" href="#info" id="#info-tab" data-toggle="tab"
+                                        <a class="nav-link" href="#info" id="#info-tab" data-toggle="tab"
                                             role="tab" aria-controls="disclaimer" aria-selected="false"
                                             data-translation="catchment.info"></a>
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="catchmentTabsContent">
                                     <div class="tab-pane fade show active" id="catchmentID">
-                                        &nbsp;
-                                        <div class="card border-dark">
+                                        <div class="card" style="border-color: var(--border-color);">
                                             <div class="card-body">
                                                 <div id="catchmentID-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="climate">
-                                        &nbsp;
-                                        <div class="card border-dark">
+                                        <div class="card" style="border-color: var(--border-color);">
                                             <div class="card-body">
                                                 <div id="climate-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="physiographic">
-                                        &nbsp;<div class="card border-dark">
+                                        <div class="card" style="border-color: var(--border-color);">
                                             <div class="card-body">
                                                 <div id="physiographic-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="hydrology">
-                                        &nbsp;
-                                        <div class="card border-dark">
+                                        <div class="card" style="border-color: var(--border-color);">
                                             <div class="card-body">
                                                 <div id="hydrology-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="risk">
-                                        &nbsp;
-                                        <div class="card border-dark">
+                                        <div class="card" style="border-color: var(--border-color);">
                                             <div class="card-body">
                                                 <div id="risk-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="water">
-                                        &nbsp;
-                                        <div class="card border-dark">
+                                        <div class="card" style="border-color: var(--border-color);">
                                             <div class="card-body">
                                                 <div id="water-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="info">
-                                        &nbsp;
-                                        <div class="card border-dark">
+                                        <div class="card" style="border-color: var(--border-color);">
                                             <div class="card-body">
                                                 <div id="other-info">
                                                     <div class='table-responsive'>
                                                         <table id='tblContentInfo'
                                                             class='table table-striped table-bordered table-sm table-hover'>
                                                             <tr>
-                                                                <th data-translation='readtext.metadata'>Metadata</th>
+                                                                <th data-translation='readtext.metadata' style="background-color: #e9ecef; font-family: var(--heading-font);">Metadata</th>
                                                                 <td id="meta"></td>
                                                             </tr>
                                                             <tr>
-                                                                <th data-translation='readtext.tech_note'>Technical
+                                                                <th data-translation='readtext.tech_note' style="background-color: #e9ecef; font-family: var(--heading-font);">Technical
                                                                     Notice</th>
                                                                 <td id="note"></td>
                                                             </tr>
                                                             <tr>
-                                                                <th data-translation='readtext.pubs'>Publications</th>
+                                                                <th data-translation='readtext.pubs' style="background-color: #e9ecef; font-family: var(--heading-font);">Publications</th>
                                                                 <td id="pubs"></td>
                                                             </tr>
                                                             <tr>
-                                                                <th data-translation='readtext.ext_links'>External Links
+                                                                <th data-translation='readtext.ext_links' style="background-color: #e9ecef; font-family: var(--heading-font);">External Links
                                                                 </th>
                                                                 <td id="links"></td>
                                                             </tr>
@@ -352,19 +350,19 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <div id="map2" class="img-thumbnail"></div>
+                                <div id="map2" class="img-thumbnail" style="border-color: var(--border-color);"></div>
                                 <div id="charts">
                                     <div class="row chart-heading">
                                         <div class="col-12 text-center ">
                                             <div class="btn-group btn-group-toggle" data-toggle="buttons" role="group"
                                                 aria-label="Chart type">
-                                                <label class="btn btn-secondary">
+                                                <label class="btn btn-outline-secondary">
                                                     <input type="radio" name="options" id="bar" checked> Bar
                                                 </label>
-                                                <label class="btn btn-secondary active">
+                                                <label class="btn btn-outline-secondary active">
                                                     <input type="radio" name="options" id="line"> Line
                                                 </label>
-                                                <label class="btn btn-secondary">
+                                                <label class="btn btn-outline-secondary">
                                                     <input type="radio" name="options" id="pie"> Pie
                                                 </label>
                                             </div>
@@ -388,9 +386,9 @@
                     </div>
 
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="background-color: var(--light-neutral-bg); border-top: 1px solid var(--border-color);">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        data-translation="button.close"></button>
+                        data-translation="button.close" style="background-color: var(--secondary-color); border-color: var(--secondary-color); color: var(--dark-text-color);">Close</button>
                 </div>
             </div> <!-- /.modal-content -->
         </div> <!-- /.modal-dialog -->

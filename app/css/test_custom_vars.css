@@ -1,0 +1,11 @@
+html {
+    --primary-color: #1A535C; /* Deep Teal */
+    --secondary-color: #4ECDC4; /* Medium Aquamarine */
+    --accent-color: #F7B801; /* Selective Yellow */
+    --light-neutral-bg: #F8F9FA; /* Bootstrap's $gray-100 */
+    --dark-text-color: #212529; /* Bootstrap's $gray-900 */
+    --light-text-color: #FFFFFF; /* White */
+    --border-color: #CED4DA; /* Bootstrap's $gray-400 */
+    --body-font: 'Open Sans', sans-serif;
+    --heading-font: 'Montserrat', sans-serif;
+}
