@@ -100,7 +100,7 @@ const init = () => {
         });
     }
 
-    $(".leaflet-left").css({ left: "250px" });
+    $(".leaflet-left").css({ left: "260px" });
 
     function sizeLayerControl() {
         $(".leaflet-control-layers").css("max-height", $("#map").height() - 50);
@@ -154,27 +154,30 @@ const init = () => {
         });
     }
 
-    const leftSidebarWidth = $("#sidebar").width();
+    const leftSidebarWidth = $("#sidebar").width() || 260; // Default width if not set
     let leftSidebar = true;
 
     function animateSidebar() {
         // $(".left-sidebar-btn").on("click", function () {
         if (leftSidebar) {
             $("#sidebar").animate({
-                left: `-${leftSidebarWidth + 1}px`, width: "toggle", function() {
+                left: `-${leftSidebarWidth + 11}px`,
+                width: "toggle",
+                function() {
                     map.invalidateSize();
                     map.setView([-2.131, 22.896], 5);
                 }
             });
-            $(".leaflet-left").animate({ left: 0 });
+            $(".leaflet-left").animate({ left: '0' });
+            $(".leaflet-left .basic-functions").animate({ left: '10px' });
         } else {
-            $(".leaflet-left.basic-functions").animate({ left: `${leftSidebarWidth}px` });
+            $(".leaflet-left.basic-functions").animate({ left: `${leftSidebarWidth + 13}px` });
             $("#sidebar").animate({
-                left: "0px", width: "toggle", function() {
-                    map.invalidateSize();
+                left: "0", width: "toggle", function() {
                 }
             });
         }
+        map.invalidateSize();
         leftSidebar = !leftSidebar;
         // });
         // $("#sidebar").animate({
