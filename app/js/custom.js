@@ -100,7 +100,7 @@ const init = () => {
         });
     }
 
-    $(".leaflet-left").css({ left: "260px" });
+    $(".leaflet-left").css({ left: "250px" });
 
     function sizeLayerControl() {
         $(".leaflet-control-layers").css("max-height", $("#map").height() - 50);
@@ -154,30 +154,27 @@ const init = () => {
         });
     }
 
-    const leftSidebarWidth = $("#sidebar").width() || 260; // Default width if not set
+    const leftSidebarWidth = $("#sidebar").width();
     let leftSidebar = true;
 
     function animateSidebar() {
         // $(".left-sidebar-btn").on("click", function () {
         if (leftSidebar) {
             $("#sidebar").animate({
-                left: `-${leftSidebarWidth + 11}px`,
-                width: "toggle",
-                function() {
+                left: `-${leftSidebarWidth + 1}px`, width: "toggle", function() {
                     map.invalidateSize();
                     map.setView([-2.131, 22.896], 5);
                 }
             });
-            $(".leaflet-left").animate({ left: '0' });
-            $(".leaflet-left .basic-functions").animate({ left: '10px' });
+            $(".leaflet-left").animate({ left: 0 });
         } else {
-            $(".leaflet-left.basic-functions").animate({ left: `${leftSidebarWidth + 13}px` });
+            $(".leaflet-left.basic-functions").animate({ left: `${leftSidebarWidth}px` });
             $("#sidebar").animate({
-                left: "0", width: "toggle", function() {
+                left: "0px", width: "toggle", function() {
+                    map.invalidateSize();
                 }
             });
         }
-        map.invalidateSize();
         leftSidebar = !leftSidebar;
         // });
         // $("#sidebar").animate({
@@ -933,7 +930,7 @@ const init = () => {
 
     let hash = L.hash(map);
 
-    map.attributionControl.setPrefix(`<a href="https://www.crrebac.org/en_GB/" target="_blank">© CRREBaC</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="mailto:vickadiata@gmail.com">vick25</a>`);
+    map.attributionControl.setPrefix('<a href="https://www.crrebac.org/en_GB/" target="_blank">© CRREBaC</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; vick25');
 
     /* Map create panes */
     map.createPane('catchmentPane');

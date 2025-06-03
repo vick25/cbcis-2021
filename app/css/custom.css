@@ -2,35 +2,25 @@ html,
 body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
-    /* Prevent scrollbars on html/body directly */
+    overflow: hidden; /* Prevent scrollbars on html/body directly */
 }
 
 #container {
     display: flex;
     height: 100%;
     width: 100%;
-    padding-top: 86px;
-    /* Adjust if navbar height changes, for fixed navbar */
+    padding-top: 86px; /* Adjust if navbar height changes, for fixed navbar */
     box-sizing: border-box;
-    --primary-color: #1A535C;
-    /* Deep Teal */
-    --secondary-color: #4ECDC4;
-    /* Medium Aquamarine */
-    --accent-color: #F7B801;
-    /* Selective Yellow */
-    --light-neutral-bg: #F8F9FA;
-    /* Bootstrap's $gray-100 */
-    --dark-text-color: #212529;
-    /* Bootstrap's $gray-900 */
-    --light-text-color: #FFFFFF;
-    /* White */
-    --border-color: #CED4DA;
-    /* Bootstrap's $gray-400 */
+    --primary-color: #1A535C; /* Deep Teal */
+    --secondary-color: #4ECDC4; /* Medium Aquamarine */
+    --accent-color: #F7B801; /* Selective Yellow */
+    --light-neutral-bg: #F8F9FA; /* Bootstrap's $gray-100 */
+    --dark-text-color: #212529; /* Bootstrap's $gray-900 */
+    --light-text-color: #FFFFFF; /* White */
+    --border-color: #CED4DA; /* Bootstrap's $gray-400 */
     --body-font: 'Open Sans', sans-serif;
     --heading-font: 'Montserrat', sans-serif;
     --common-border-radius: 0.25rem;
-    /* Bootstrap's default */
 }
 
 body {
@@ -38,16 +28,9 @@ body {
     font-family: var(--body-font);
     background-color: var(--light-neutral-bg);
     color: var(--dark-text-color);
-    overflow: hidden;
-    /* Children will manage their own scroll */
-    font-size: 0.95rem;
-    /* Base font size slightly adjusted */
-    line-height: 1.6;
-    /* Improved line height for readability */
-}
-
-.modal {
-    background-color: #FFF;
+    overflow: hidden; /* Children will manage their own scroll */
+    font-size: 0.95rem; /* Base font size slightly adjusted */
+    line-height: 1.6; /* Improved line height for readability */
 }
 
 .white {
@@ -55,48 +38,37 @@ body {
 }
 
 /* Navbar styles */
-.navbar.bg-dark {
-    /* Overriding Bootstrap's default bg-dark */
-    /* background-color: var(--primary-color) !important; */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.navbar.bg-dark { /* Overriding Bootstrap's default bg-dark */
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.85);
-    /* Lighter than default for better contrast on primary */
     font-family: var(--heading-font);
-    /* Use heading font for nav links for a bit more distinction */
     padding: 0.5rem 1rem;
-    /* Ensure consistent padding */
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link:focus {
     color: var(--light-text-color);
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Subtle hover effect */
+    background-color: rgba(255,255,255,0.1);
 }
 
-.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link.show,
-.navbar-dark .navbar-nav .show>.nav-link {
+.navbar-dark .navbar-nav .show > .nav-link {
     color: var(--light-text-color);
-    background-color: #9ee4ef;
-    border-radius: 5px;
-    /* Slightly darker shade of primary for active items */
+    background-color: #15434a;
 }
 
 /* Space out partner logos in navbar */
 .navbar-brand.ml-auto img {
     margin-left: 10px;
-    /* Spacing between logos */
     height: 40px;
-    /* Adjusted for better alignment if possible */
     width: auto;
-    /* Maintain aspect ratio */
 }
-
 .navbar-brand.ml-auto img:first-child {
     margin-left: 0;
 }
@@ -108,96 +80,56 @@ body {
 #map {
     width: auto;
     flex-grow: 1;
-    /* Map takes remaining space */
     height: calc(100vh - 86px);
-    /* Full viewport height minus navbar */
     padding: 0;
     margin: 0;
     background-color: var(--light-text-color);
-    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.1);
-    /* Inner shadow for depth */
+    box-shadow: inset 1px 1px 5px rgba(0,0,0,0.1);
 }
 
-#map2 {
-    top: 0;
-    bottom: 0;
+#map2 { /* Mini-map in modal */
     width: auto;
     height: 250px !important;
-    /* Reduced height slightly */
     margin-bottom: 15px;
-    /* Reduced margin */
     background-color: var(--light-text-color);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-color);
-    border-radius: var(--common-border-radius);
+    /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); Removed for cleaner modal look */
+    /* border: 1px solid var(--border-color); Removed, img-thumbnail class handles border */
+    border-radius: var(--common-border-radius); /* Keep radius consistent if img-thumbnail is not enough */
 }
 
-#charts {
+#charts { /* Charts container in modal */
     display: none;
-    bottom: 0;
     width: auto;
     height: 250px !important;
-    /* Reduced height slightly */
     background-color: var(--light-text-color);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-color);
+    /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); Removed for cleaner modal look */
+    /* border: 1px solid var(--border-color); Removed for cleaner modal look */
     margin-top: 15px;
-    border-radius: var(--common-border-radius);
+    border-radius: var(--common-border-radius); /* Keep radius for the chart block itself */
 }
 
 .chart-heading {
     padding: 0.5rem 1rem;
-    /* Adjusted padding */
     border-bottom: 1px solid var(--border-color);
-    /* Changed from border-image */
     font-family: var(--heading-font);
     background-color: #e9ecef;
-    /* Light header for charts */
-    border-top-left-radius: var(--common-border-radius);
+    border-top-left-radius: var(--common-border-radius); /* Applied to this as it's the top of the chart block now */
     border-top-right-radius: var(--common-border-radius);
 }
 
-.hidden {
-    display: none;
-}
+.hidden { display: none; }
+.chart-container { position: relative; padding: 10px; }
+.unhidden { display: block; }
 
-.chart-container {
-    position: relative;
-    padding: 10px;
-}
-
-/* Added padding */
-.unhidden {
-    display: block;
-}
-
-.custom-content svg {
-    height: 25px;
-    width: 25px;
-}
-
+.custom-content svg { height: 25px; width: 25px; }
 .custom-content.active::before {
-    content: "+";
-    font-weight: bold;
-    color: var(--dark-text-color);
-    position: absolute;
-    width: 20px;
-    padding: 2px 7px;
-    font-size: 22px;
+    content: "+"; font-weight: bold; color: var(--dark-text-color);
+    position: absolute; width: 20px; padding: 2px 7px; font-size: 22px;
 }
 
-.navbar.navbar-brand {
-    padding: 0px;
-    margin: auto 10px;
-}
-
-.navbar-nav {
-    justify-content: space-between;
-}
-
-.navbar-collapse.in {
-    overflow-y: hidden;
-}
+.navbar.navbar-brand { padding: 0px; margin: auto 10px; }
+.navbar-nav { justify-content: space-between; }
+.navbar-collapse.in { overflow-y: hidden; }
 
 /* === General Button Styling === */
 .btn {
@@ -208,41 +140,47 @@ body {
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* Primary action button style (example, if needed) */
 .btn-primary-custom {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: var(--light-text-color);
 }
-
 .btn-primary-custom:hover {
     background-color: #15434a;
-    /* Darken primary */
     border-color: #15434a;
     color: var(--light-text-color);
 }
-
-.btn-primary-custom:focus,
-.btn-primary-custom.focus {
+.btn-primary-custom:focus, .btn-primary-custom.focus {
     box-shadow: 0 0 0 0.2rem rgba(26, 83, 92, 0.5);
-    /* Primary color focus */
+}
+
+.btn-secondary { /* Overriding Bootstrap's default .btn-secondary for modals etc. */
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--dark-text-color); /* Ensure contrast on lighter secondary color */
+}
+.btn-secondary:hover {
+    background-color: #45b8af; /* Slightly darker secondary */
+    border-color: #45b8af;
+    color: var(--dark-text-color);
+}
+.btn-secondary:focus, .btn-secondary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.5);
 }
 
 
 /* Chart toggle buttons */
-.btn-group-toggle>.btn-outline-secondary {
+.btn-group-toggle > .btn-outline-secondary {
     color: var(--primary-color);
     border-color: var(--primary-color);
+    background-color: transparent; /* Ensure it's truly outline */
 }
-
-.btn-group-toggle>.btn-outline-secondary:hover {
+.btn-group-toggle > .btn-outline-secondary:hover {
     background-color: rgba(26, 83, 92, 0.1);
-    /* Light primary bg */
     color: var(--primary-color);
 }
-
-.btn-group-toggle>.btn-outline-secondary.active,
-.btn-group-toggle>.btn-outline-secondary:active {
+.btn-group-toggle > .btn-outline-secondary.active,
+.btn-group-toggle > .btn-outline-secondary:active {
     background-color: var(--primary-color);
     color: var(--light-text-color);
     border-color: var(--primary-color);
@@ -257,77 +195,55 @@ body {
     color: var(--dark-text-color);
     border: 1px solid transparent;
     border-radius: var(--common-border-radius);
-    /* Consistent border radius */
     margin-right: 5px;
-    /* Spacing between tabs */
 }
-
 .nav-pills .nav-link:last-child {
     margin-right: 0;
 }
-
 .nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
+.nav-pills .show > .nav-link {
     background-color: var(--primary-color);
     color: var(--light-text-color);
     border-color: var(--primary-color);
 }
-
 .nav-pills .nav-link:not(.active):hover {
     background-color: #e9ecef;
     border-color: #e9ecef;
     color: var(--primary-color);
 }
 
-/* Basic map function buttons */
-.basic-functions {
-    position: absolute;
-    max-width: fit-content;
-    bottom: 5rem;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-}
 
+/* Basic map function buttons */
 .basic-functions .btns {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    position: relative;
+    width: 38px; height: 38px;
     background-color: var(--light-text-color);
     color: var(--dark-text-color);
     margin: 3px;
-    /* Spacing between buttons */
-    padding: 5px;
+    padding: 0;
     border-radius: var(--common-border-radius);
-    border: 2px solid var(--border-color);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.15s ease, border-color 0.15s ease;
 }
-
 .basic-functions .btns:hover {
     background-color: #f0f0f0;
     border-color: var(--primary-color);
     color: var(--primary-color);
 }
-
 .basic-functions .fas {
-    /* Icon inside .btns */
     font-size: 1.1rem;
-    /* Adjusted size */
     position: static;
-    /* Remove absolute positioning */
     transform: none;
-    /* Remove transform */
 }
 
 
 /* Sidebar */
 #sidebar {
     display: flex;
-    /* Changed from block */
     flex-direction: column;
     width: 250px;
     flex-shrink: 0;
@@ -337,119 +253,48 @@ body {
     border-right: 1px solid var(--border-color);
     margin-right: 5px;
 }
+#features { margin: 0; border: 0; border-radius: 0; box-shadow: none; display: flex; flex-direction: column; flex-grow: 1; }
 
-#features {
-    margin: 0;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
+tr.active { background: var(--secondary-color) !important; color: var(--dark-text-color) !important; }
+tr.active td, tr.active:hover td { color: var(--dark-text-color) !important; }
+tr.active:hover { background: var(--secondary-color) !important; opacity: 0.9; }
 
-tr.active {
-    background: var(--secondary-color) !important;
-    color: var(--dark-text-color) !important;
-}
-
-tr.active td,
-tr.active:hover td {
-    color: var(--dark-text-color) !important;
-}
-
-tr.active:hover {
-    background: var(--secondary-color) !important;
-    opacity: 0.9;
-}
-
-.sidebar-wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.table {
-    margin-bottom: 0px;
-    font-family: var(--body-font);
-}
+.sidebar-wrapper { width: 100%; height: 100%; position: relative; display: flex; flex-direction: column; }
+.table { margin-bottom: 0px; font-family: var(--body-font); }
 
 .scrollDiv {
-    /* This contains the feature list table body */
     overflow-y: auto;
     flex-grow: 1;
-    /* Takes available space in .sidebar-table */
 }
 
 .sidebar-table {
-    /* This contains the .scrollDiv and header potentially */
-    border: 0px;
-    width: 100%;
+    border: 0px; width: 100%;
     flex-grow: 1;
     overflow-y: hidden;
-    /* Changed from hidden to auto to enable scrolling */
-    /* Limit max height and enable scroll */
-    display: flex;
-    /* To make scrollDiv grow */
-    flex-direction: column;
-}
-
-#feature-list {
-    max-height: calc(100vh - 250px);
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
 
-.feature-row {
-    cursor: pointer;
-    width: 100% !important;
-    max-width: fit-content;
-}
+.feature-row { cursor: pointer; width: 100% !important; max-width: 100%; }
+.feature-row td { padding: 0.6rem 0.75rem; }
 
-.feature-row td {
-    padding: 0.6rem 0.75rem;
-}
-
-/* Consistent padding for table cells */
-
-#footerCard {
-    position: sticky;
-    bottom: 0;
-    max-height: min-content;
-    margin-top: auto;
-    padding: 0px;
-    background-color: var(--light-neutral-bg);
-    border-top: 1px solid var(--border-color);
-    z-index: 1;
-}
-
+#footerCard { padding: 0px; background-color: var(--light-neutral-bg); border-top: 1px solid var(--border-color); }
 #totalText {
-    border-radius: 0rem;
-    background-color: var(--light-neutral-bg);
+    border-radius: 0rem; background-color: var(--light-neutral-bg);
     border: none;
-    /* Remove border, it's inside a card footer essentially */
-    color: var(--dark-text-color);
-    font-family: var(--body-font);
+    color: var(--dark-text-color); font-family: var(--body-font);
     padding: 0.5rem 1rem;
-    /* Consistent padding */
 }
 
-/* Sidebar hide button */
 #sidebar-hide-btn {
     padding: 0.25rem 0.6rem;
-    /* Adjusted padding */
     border: 1px solid var(--border-color);
     border-radius: var(--common-border-radius);
     color: var(--dark-text-color);
     background-color: var(--light-text-color);
     font-size: 0.9rem;
     line-height: 1.2;
-    /* Ensure icon is centered */
 }
-
 #sidebar-hide-btn:hover {
     color: var(--light-text-color);
     background-color: var(--primary-color);
@@ -457,80 +302,38 @@ tr.active:hover {
 }
 
 .pane-heading {
-    /* Header for sidebar sections (e.g. Catchment Names) */
-    width: 100%;
-    padding: 0.75rem 1rem;
-    /* Standardized padding */
+    width: 100%; padding: 0.75rem 1rem;
     border-bottom: 1px solid var(--border-color);
     background-color: #e9ecef;
 }
-
-.pane-heading h6 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-    margin-bottom: 0;
-}
-
-.pane-heading .card-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-label[for="sidebar-hide-btn"] {
-    margin-bottom: 0;
-}
+.pane-heading h6 { font-family: var(--heading-font); color: var(--primary-color); margin-bottom: 0; }
 
 .pane-body {
-    /* Contains search filter in sidebar */
-    max-height: min-content;
-    width: 100%;
-    padding: 0.75rem;
-    /* Standardized padding */
-    background-color: var(--light-neutral-bg);
-    box-sizing: border-box;
+    width: 100%; padding: 0.75rem;
+    background-color: var(--light-neutral-bg); box-sizing: border-box;
 }
 
-/* Sort button (if used) */
 #sort-btn {
     padding: 0.4rem 0.8rem;
-    /* Consistent with .btn */
     margin: 0;
     font-size: 0.9rem;
-    /* Consistent with .btn */
     border: 1px solid var(--border-color);
     border-radius: var(--common-border-radius);
-    /* Consistent radius */
     color: var(--dark-text-color);
     background-color: var(--light-text-color);
 }
-
 #sort-btn:hover {
     background-color: var(--secondary-color);
     color: var(--dark-text-color);
     border-color: var(--secondary-color);
 }
 
-#selectpicker {
-    width: 100px;
-    margin: auto 10px;
-}
-
-.list-group.inner li {
-    border: none;
-    padding: 0 20px;
-    margin-bottom: 0;
-    font-family: var(--body-font);
-}
-
-.popup {
-    text-align: center;
-    font-family: var(--body-font);
-}
+#selectpicker { width: 100px; margin: auto 10px; }
+.list-group.inner li { border: none; padding: 0 20px; margin-bottom: 0; font-family: var(--body-font); }
+.popup { text-align: center; font-family: var(--body-font); }
 
 /* Form Controls General Styling */
-.form-control,
-select.form-control {
+.form-control, select.form-control {
     font-family: var(--body-font);
     color: var(--dark-text-color);
     background-color: var(--light-text-color);
@@ -540,295 +343,191 @@ select.form-control {
     font-size: .9rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
-.form-control:focus,
-select.form-control:focus {
+.form-control:focus, select.form-control:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem rgba(26, 83, 92, 0.25);
     background-color: var(--light-text-color);
-    /* Ensure bg doesn't change on focus */
 }
-
 #searchicon {
-    /* Icon in input group */
     background-color: var(--light-text-color);
     border-color: var(--border-color);
     color: var(--dark-text-color);
     border-radius: var(--common-border-radius);
 }
-
 .input-group>.input-group-append>#searchicon,
 .input-group>.input-group-prepend>#searchicon {
     border-left-color: transparent;
-    /* Prepend makes right border, append makes left border */
 }
-
-.input-group>.form-control:not(:last-child) {
-    border-right: 0;
-}
-
-/* Remove double border */
-.input-group>.form-control:not(:first-child) {
-    border-left: 0;
-}
+.input-group>.form-control:not(:last-child) { border-right: 0; }
+.input-group>.form-control:not(:first-child) { border-left: 0; }
 
 
-#aboutTabsContent {
-    padding-top: 15px;
+#aboutTabsContent { padding-top: 15px; font-family: var(--body-font); }
+input[type="radio"], input[type="checkbox"] { margin: 0 5px 0 0; accent-color: var(--primary-color); }
+
+/* Modal Content Styling */
+.modal-content {
+    border-color: var(--border-color);
+    background-color: var(--light-neutral-bg);
+    border-radius: 0.3rem; /* Explicitly Bootstrap's default modal radius */
     font-family: var(--body-font);
 }
-
-input[type="radio"],
-input[type="checkbox"] {
-    margin: 0 5px 0 0;
-    accent-color: var(--primary-color);
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+    color: var(--primary-color); /* For title */
+}
+.modal-header .modal-title {
+    font-family: var(--heading-font);
+}
+.modal-header .close {
+    color: var(--dark-text-color);
+    opacity: 0.7;
+    text-shadow: none;
+}
+.modal-header .close:hover {
+    opacity: 1;
+}
+.modal-body {
+    color: var(--dark-text-color);
+    padding: 1rem 1.5rem; /* More padding in modal body */
+}
+.modal-footer {
+    background-color: var(--light-neutral-bg);
+    border-top: 1px solid var(--border-color);
 }
 
-/* Leaflet Controls */
-.leaflet-control-layers label {
-    font-weight: normal;
-    margin-bottom: 2px;
-    font-family: var(--body-font);
+/* Cards inside modals */
+.modal-body .card {
+    border-color: var(--border-color); /* Ensure cards inside modals use theme border */
+    border-radius: var(--common-border-radius); /* Consistent radius with other elements */
+}
+.modal-body .card .card-body {
+    padding: 1rem; /* Slightly less padding for cards in modals */
+}
+.modal-body #tblContentInfo th { /* Table headers in info tab */
+    background-color: #e9ecef;
+    font-family: var(--heading-font);
     color: var(--dark-text-color);
 }
 
-.leaflet-control-layers-list input[type="radio"],
-.leaflet-control-layers-list input[type="checkbox"] {
-    margin-right: 5px;
-}
 
+/* Leaflet Controls */
+.leaflet-control-layers label { font-weight: normal; margin-bottom: 2px; font-family: var(--body-font); color: var(--dark-text-color); }
+.leaflet-control-layers-list input[type="radio"], .leaflet-control-layers-list input[type="checkbox"] { margin-right: 5px; }
 .leaflet-control-layers-toggle {
     background-color: var(--light-text-color) !important;
-    /* Override Leaflet */
     border: 1px solid var(--border-color);
     border-radius: var(--common-border-radius);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-
-.leaflet-control-layers-toggle:hover {
-    background-color: #f0f0f0 !important;
-}
-
-.leaflet-control-attribution a {
-    color: var(--primary-color) !important;
-}
-
+.leaflet-control-layers-toggle:hover { background-color: #f0f0f0 !important; }
+.leaflet-control-attribution a { color: var(--primary-color) !important; }
 .leaflet-control-layers {
-    overflow: auto;
-    background-color: var(--light-text-color);
+    overflow: auto; background-color: var(--light-text-color);
     border: 1px solid var(--border-color);
     border-radius: var(--common-border-radius);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
     padding: 10px;
-    /* Added padding */
 }
-
-.leaflet-bar a,
-.leaflet-bar a:hover {
-    /* Zoom buttons */
+.leaflet-bar a, .leaflet-bar a:hover {
     background-color: var(--light-text-color) !important;
     color: var(--dark-text-color) !important;
     border-bottom: 1px solid var(--border-color) !important;
     border-radius: var(--common-border-radius);
-    /* Apply to individual buttons */
 }
-
-.leaflet-bar a:first-child {
-    border-top-left-radius: var(--common-border-radius);
-    border-top-right-radius: var(--common-border-radius);
-}
-
-.leaflet-bar a:last-child {
-    border-bottom-left-radius: var(--common-border-radius);
-    border-bottom-right-radius: var(--common-border-radius);
-    border-bottom: none !important;
-}
-
-.leaflet-bar a:hover {
-    background-color: #f0f0f0 !important;
-}
+.leaflet-bar a:first-child { border-top-left-radius: var(--common-border-radius); border-top-right-radius: var(--common-border-radius); }
+.leaflet-bar a:last-child { border-bottom-left-radius: var(--common-border-radius); border-bottom-right-radius: var(--common-border-radius); border-bottom: none !important; }
+.leaflet-bar a:hover { background-color: #f0f0f0 !important; }
 
 /* Leaflet Popups */
 .leaflet-popup-content-wrapper {
     border-radius: var(--common-border-radius);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
     padding: 10px;
-    /* More padding */
 }
-
 .leaflet-popup-content {
     font-family: var(--body-font);
     color: var(--dark-text-color);
     line-height: 1.5;
     margin: 0 !important;
-    /* Override Leaflet's margin */
 }
-
 .leaflet-popup-tip {
     box-shadow: none;
-    /* Tip can look cleaner without shadow */
 }
 
 
 /* Media Queries */
-@media (max-width: 992px) {
-    .navbar .navbar-brand {
-        font-size: 18px;
-    }
-}
-
+@media (max-width: 992px) { .navbar .navbar-brand { font-size: 18px; } }
 @media (max-width: 767px) {
-    #sidebar {
-        display: none;
-    }
-
-    .url-break {
-        word-break: break-all;
-        word-break: break-word;
-        -webkit-hyphens: auto;
-        hyphens: auto;
-    }
-
-    .dropdown-menu a i {
-        color: var(--light-text-color);
-    }
-
+    #sidebar { display: none; }
+    .url-break { word-break: break-all; word-break: break-word; -webkit-hyphens: auto; hyphens: auto; }
+    .dropdown-menu a i { color: var(--light-text-color); }
     .dropdown-menu {
-        font-family: var(--body-font);
-        border-color: var(--border-color);
-        background-color: var(--light-neutral-bg);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        font-family: var(--body-font); border-color: var(--border-color);
+        background-color: var(--light-neutral-bg); box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
-
-    .dropdown-item {
-        color: var(--dark-text-color);
-        padding: .5rem 1rem;
-    }
-
-    .dropdown-item:hover {
-        background-color: var(--secondary-color);
-        color: var(--dark-text-color);
-    }
-
-    #hide-list-btn {
-        display: none;
-    }
+    .dropdown-item { color: var(--dark-text-color); padding: .5rem 1rem; }
+    .dropdown-item:hover { background-color: var(--secondary-color); color: var(--dark-text-color); }
+    #hide-list-btn { display: none; }
 }
 
-@media print {
-
-    .navbar,
-    .leaflet-control-container {
-        display: none !important;
-    }
-}
+@media print { .navbar, .leaflet-control-container { display: none !important; } }
 
 /* Typeahead */
-.typeahead {
-    background-color: var(--light-text-color);
-    font-family: var(--body-font);
-}
-
-.typeahead:focus {
-    border: 2px solid var(--primary-color);
-}
-
+.typeahead { background-color: var(--light-text-color); font-family: var(--body-font); }
+.typeahead:focus { border: 2px solid var(--primary-color); }
 .typeahead-header {
-    margin: 0 5px 5px 5px;
-    padding: 0.5rem 0.75rem;
-    /* Consistent padding */
+    margin: 0 5px 5px 5px; padding: 0.5rem 0.75rem;
     border-bottom: 1px solid var(--primary-color);
-    /* Subtle border */
-    font-family: var(--heading-font);
-    color: var(--primary-color);
+    font-family: var(--heading-font); color: var(--primary-color);
 }
-
-.tt-hint {
-    color: #999
-}
-
-.tt-query {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
+.tt-hint { color: #999 }
+.tt-query { box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 .tt-menu {
     background-color: var(--light-text-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    margin-top: 4px;
-    width: 100%;
-    max-height: 300px;
+    margin-top: 4px; width: 100%; max-height: 300px;
     border: 1px solid var(--border-color);
     border-radius: var(--common-border-radius);
-    padding: 0.5rem 0;
-    overflow: auto;
+    padding: 0.5rem 0; overflow: auto;
 }
-
 .tt-suggestion {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    padding: 0.5rem 1rem;
-    /* Increased padding */
+    font-size: 0.9rem; line-height: 1.5; padding: 0.5rem 1rem;
     color: var(--dark-text-color);
 }
-
-.tt-suggestion:hover,
-.tt-suggestion.tt-cursor {
-    cursor: pointer;
-    color: var(--dark-text-color);
+.tt-suggestion:hover, .tt-suggestion.tt-cursor {
+    cursor: pointer; color: var(--dark-text-color);
     background-color: var(--secondary-color);
 }
-
-.tt-suggestion p {
-    margin: 0;
-}
-
-.tt-suggestion+.tt-suggestion {
-    border-top: 1px solid var(--border-color);
-}
+.tt-suggestion p { margin: 0; }
+.tt-suggestion+.tt-suggestion { border-top: 1px solid var(--border-color); }
 
 .has-feedback .form-control-feedback {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
+    position: absolute; top: 0; right: 0; display: block;
+    width: 34px; height: 34px; line-height: 34px; text-align: center;
 }
 
 /* Tooltip Styling */
 .tooltip-inner {
-    background-color: var(--dark-text-color);
-    /* Dark background for tooltip */
-    color: var(--light-text-color);
-    /* Light text */
-    border-radius: var(--common-border-radius);
-    padding: 0.4rem 0.8rem;
-    /* Consistent padding */
-    font-family: var(--body-font);
-    font-size: 0.85rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: var(--dark-text-color);
+  color: var(--light-text-color);
+  border-radius: var(--common-border-radius);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--body-font);
+  font-size: 0.85rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-
-.bs-tooltip-top .arrow::before,
-.bs-tooltip-auto[x-placement^="top"] .arrow::before {
-    border-top-color: var(--dark-text-color);
+.bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+  border-top-color: var(--dark-text-color);
 }
-
-.bs-tooltip-right .arrow::before,
-.bs-tooltip-auto[x-placement^="right"] .arrow::before {
-    border-right-color: var(--dark-text-color);
+.bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+  border-right-color: var(--dark-text-color);
 }
-
-.bs-tooltip-bottom .arrow::before,
-.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
-    border-bottom-color: var(--dark-text-color);
+.bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+  border-bottom-color: var(--dark-text-color);
 }
-
-.bs-tooltip-left .arrow::before,
-.bs-tooltip-auto[x-placement^="left"] .arrow::before {
-    border-left-color: var(--dark-text-color);
+.bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+  border-left-color: var(--dark-text-color);
 }
 
 /*

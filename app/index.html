@@ -38,9 +38,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Load Leaflet css: http://leafletjs.com/ -->
     <link rel="stylesheet" href="css/leaflet.css">
@@ -78,7 +76,7 @@
 
             <button id="sidebar-toggle-btn" class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
-                <span class="fa fa-search fa-lg visible-xs white"></span>
+                <span class="fas fa-bars fa-lg visible-xs white"></span>
             </button>
 
             <button id="nav-btn" class="navbar-toggler pull-right" type="button" data-toggle="collapse"
@@ -99,21 +97,12 @@
                         <a class="nav-link" href="./about/about.html" data-target=".navbar-collapse.in"
                             data-translation="navbar.about"></a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" data-target=".navbar-collapse.in"
-                            id="about-btn" data-translation="navbar.about"></a>
-                    </li> -->
-
                     <li class="nav-item d-none d-sm-block" id="hide-list-btn">
                         <a class="nav-link" id="list-btn" href="#" data-toggle="collapse"
                             data-target=".navbar-collapse.in" data-translation="navbar.catchment-list"></a>
                     </li>
-                    <!-- <li class="nav-item hidden-xs">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#catchmentModal">Modal</a>
-                    </li> -->
                 </ul>
 
-                <!-- id="partner_logos" -->
                 <div class="navbar-brand ml-auto">
                     <img src="images/logo/logo-for-cbcis_royal-society.png" width="91" height="47" alt="Royal-Society"
                         class="d-inline-block align-top" loading="lazy">
@@ -129,13 +118,10 @@
                     </select>
                 </div>
             </div>
-        </nav> <!-- /.navbar-collapse -->
+        </nav>
     </header>
 
-    <!-- Container -->
     <div id="container">
-        <!-- Sidebar -->
-
         <div id="sidebar" class="leaflet-control leaflet-prevent">
             <div class="sidebar-wrapper">
                 <div class="card card-primary" id="features">
@@ -152,25 +138,14 @@
                                 <input type="text" class="form-control search" data-translation="filter"
                                     data-translation-attr="placeholder" />
                             </div>
-                            <!--
-                            <div class="col-xs-4 col-md-4">
-                                <button type="button" class="btn btn-primary pull-right sort" data-sort="feature-name" id="sort-btn"><i class="fa fa-sort"></i>&nbsp;&nbsp;Sort</button>
-                            </div>
--->
                         </div>
                     </div>
                     <div class="sidebar-table">
                         <table class="card-table table table-hover table-striped" id="feature-list">
                             <thead hidden>
-                                <tr>
-                                    <th>Icon</th>
-                                <tr>
-                                <tr>
-                                    <th>Name</th>
-                                <tr>
-                                <tr>
-                                    <th>Chevron</th>
-                                <tr>
+                                <tr><th>Icon</th><tr>
+                                <tr><th>Name</th><tr>
+                                <tr><th>Chevron</th><tr>
                             </thead>
                             <tbody class="list scrollDiv"></tbody>
                         </table>
@@ -186,16 +161,12 @@
             </div>
         </div>
 
-        <!-- Map div -->
-        <div id="map">
-        </div>
+        <div id="map"></div>
 
-        <!-- Basic web-GIS functionalities  -->
         <div class="leaflet-control leaflet-prevent leaflet-left basic-functions">
             <div class="default-view btns" data-toggle="tooltip" title="Home (Zoom to layer)">
                 <i class="fas fa-home"></i>
             </div>
-
             <div class="full-screen btns" data-toggle="tooltip" title="Map tiles boundaries">
                 <i class="fas fa-map"></i>
             </div>
@@ -205,46 +176,36 @@
     <!-- Feature modal -->
     <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content"
-                style="border-color: var(--border-color); background-color: var(--light-neutral-bg);">
-                <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
-                    <h4 class="modal-title" id="feature-title"
-                        style="color: var(--primary-color); font-family: var(--heading-font);"></h4>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="feature-title"></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: var(--dark-text-color);">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="feature-info"
-                    style="font-family: var(--body-font); color: var(--dark-text-color);"></div>
-                <div class="modal-footer"
-                    style="border-top: 1px solid var(--border-color); background-color: var(--light-neutral-bg);">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translation="button.close"
-                        style="background-color: var(--secondary-color); border-color: var(--secondary-color); color: var(--dark-text-color);">Close</button>
+                <div class="modal-body" id="feature-info"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translation="button.close">Close</button>
                 </div>
-            </div> <!-- .modal-content -->
-        </div> <!-- .modal-dialog -->
+            </div>
+        </div>
     </div>
 
     <!-- Modal catchment -->
-    <div class="modal fade" id="catchmentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="catchmentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
-            <div class="modal-content"
-                style="border-color: var(--border-color); background-color: var(--light-neutral-bg);">
-                <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
-                    <h5 class="modal-title" id="modalLabel"
-                        style="font-family: var(--heading-font); color: var(--primary-color);"></h5>
-                    <!-- <i class="fa fa-comment"></i>&nbsp;&nbsp;<h6>View or add comments</h6> -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel"></h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: var(--dark-text-color);">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" style="font-family: var(--body-font); color: var(--dark-text-color);">
+                <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-12 col-lg-8 mb-3">
+                            <div class="col-sm-8">
                                 <ul class="nav nav-tabs nav-fill mb-3" id="catchmentTabs">
-                                    <!-- Added mb-3 for spacing -->
                                     <li class="nav-item">
                                         <a class="nav-link active" id="#catchmentID-tab" href="#catchmentID"
                                             data-toggle="tab" role="tab" aria-controls="about" aria-selected="true"
@@ -261,9 +222,9 @@
                                             aria-selected="false" data-translation="catchment.physio"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#hydrology" id="#hydrology-tab" data-toggle="tab"
-                                            role="tab" aria-controls="disclaimer" aria-selected="false"
-                                            data-translation="catchment.hydro"></a>
+                                        <a class="nav-link" href="#hydrology" id="#hydrology-tab"
+                                            data-toggle="tab" role="tab" aria-controls="disclaimer"
+                                            aria-selected="false" data-translation="catchment.hydro"></a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#risk" id="#risk-tab" data-toggle="tab" role="tab"
@@ -271,89 +232,81 @@
                                             data-translation="catchment.risk"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#water" id="#water-tab" data-toggle="tab" role="tab"
-                                            aria-controls="disclaimer" aria-selected="false"
+                                        <a class="nav-link" href="#water" id="#water-tab" data-toggle="tab"
+                                            role="tab" aria-controls="disclaimer" aria-selected="false"
                                             data-translation="catchment.water"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#info" id="#info-tab" data-toggle="tab" role="tab"
-                                            aria-controls="disclaimer" aria-selected="false"
+                                        <a class="nav-link" href="#info" id="#info-tab" data-toggle="tab"
+                                            role="tab" aria-controls="disclaimer" aria-selected="false"
                                             data-translation="catchment.info"></a>
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="catchmentTabsContent">
                                     <div class="tab-pane fade show active" id="catchmentID">
-                                        <div class="card" style="border-color: var(--border-color);">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <div id="catchmentID-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="climate">
-                                        <div class="card" style="border-color: var(--border-color);">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <div id="climate-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="physiographic">
-                                        <div class="card" style="border-color: var(--border-color);">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <div id="physiographic-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="hydrology">
-                                        <div class="card" style="border-color: var(--border-color);">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <div id="hydrology-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="risk">
-                                        <div class="card" style="border-color: var(--border-color);">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <div id="risk-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="water">
-                                        <div class="card" style="border-color: var(--border-color);">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <div id="water-info"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="info">
-                                        <div class="card" style="border-color: var(--border-color);">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <div id="other-info">
                                                     <div class='table-responsive'>
                                                         <table id='tblContentInfo'
                                                             class='table table-striped table-bordered table-sm table-hover'>
                                                             <tr>
-                                                                <th data-translation='readtext.metadata'
-                                                                    style="background-color: #e9ecef; font-family: var(--heading-font);">
-                                                                    Metadata</th>
+                                                                <th data-translation='readtext.metadata'>Metadata</th>
                                                                 <td id="meta"></td>
                                                             </tr>
                                                             <tr>
-                                                                <th data-translation='readtext.tech_note'
-                                                                    style="background-color: #e9ecef; font-family: var(--heading-font);">
-                                                                    Technical
+                                                                <th data-translation='readtext.tech_note'>Technical
                                                                     Notice</th>
                                                                 <td id="note"></td>
                                                             </tr>
                                                             <tr>
-                                                                <th data-translation='readtext.pubs'
-                                                                    style="background-color: #e9ecef; font-family: var(--heading-font);">
-                                                                    Publications</th>
+                                                                <th data-translation='readtext.pubs'>Publications</th>
                                                                 <td id="pubs"></td>
                                                             </tr>
                                                             <tr>
-                                                                <th data-translation='readtext.ext_links'
-                                                                    style="background-color: #e9ecef; font-family: var(--heading-font);">
-                                                                    External Links
+                                                                <th data-translation='readtext.ext_links'>External Links
                                                                 </th>
                                                                 <td id="links"></td>
                                                             </tr>
@@ -366,8 +319,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-lg-4">
-                                <div id="map2" class="img-thumbnail" style="border-color: var(--border-color);"></div>
+                            <div class="col-sm-4">
+                                <div id="map2" class="img-thumbnail"></div>
                                 <div id="charts">
                                     <div class="row chart-heading">
                                         <div class="col-12 text-center ">
@@ -389,109 +342,64 @@
                                     <div class="row" class="hidden rightButton">
                                         <div class="col-12">
                                             <div class="chart-container">
-                                                <!-- <div class="card">
-                                                    <div class="card-body"> -->
                                                 <canvas id="chart"></canvas>
                                             </div>
-                                            <!-- </div>
-                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <div class="modal-footer"
-                    style="background-color: var(--light-neutral-bg); border-top: 1px solid var(--border-color);">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translation="button.close"
-                        style="background-color: var(--secondary-color); border-color: var(--secondary-color); color: var(--dark-text-color);">Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translation="button.close">Close</button>
                 </div>
-            </div> <!-- /.modal-content -->
-        </div> <!-- /.modal-dialog -->
-    </div> <!-- /.modal -->
+            </div>
+        </div>
+    </div>
 
     <!-- Google analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169183823-3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'UA-169183823-3');
-
     </script>
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS and Bootstrap JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 
     <!-- Leaflet -->
     <script src="js/leaflet.js"></script>
-    <!-- Leaflet Geoserver -->
     <script src="js/L.Geoserver.js"></script>
-    <!-- Turfjs-->
     <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
-    <!-- Charts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
-    <!-- Measure -->
     <script src="js/leaflet-measure.js"></script>
-    <!-- BoxZoom -->
     <script src="js/L.Control.ZoomBox.min.js"></script>
-    <!-- Ruler -->
-    <!-- <script src="js/leaflet-ruler.js"></script> -->
-    <!-- Base Maps -->
     <script src="js/L.Control.Basemaps.js"></script>
-    <!-- Leaflet VectorGrid -->
-    <!-- <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>-->
     <script src="js/Leaflet.VectorGrid.js"></script>
-    <!-- Overview mini map Plugin: https://github.com/Norkart/Leaflet-MiniMap -->
     <script src="js/Control.MiniMap.min.js"></script>
-    <!-- AutoLinker -->
     <script src="js/Autolinker.min.js"></script>
-    <!-- D3.js csv -->
     <script src="js/d3.min.js"></script>
-    <!-- <script src="https://unpkg.com/d3@6.2.0/dist/d3.min.js"></script> -->
     <script src="https://d3js.org/d3-collection.v1.min.js"></script>
-    <!-- Draw -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-    <!-- Locate control -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.72.0/L.Control.Locate.min.js"></script>
-    <!-- Grouped Layer -->
     <script src="js/leaflet.groupedlayercontrol.min.js" type="text/javascript"></script>
-    <!-- Coordinates -->
     <script src="js/L.Control.MousePosition.js" type="text/javascript"></script>
-    <!-- Print -->
     <script src="js/leaflet.browser.print.min.js"></script>
-    <!-- Scale -->
     <script src="https://rawgit.com/MarcChasse/leaflet.ScaleFactor/master/leaflet.scalefactor.min.js"></script>
-    <!-- Graticule-->
     <script src="js/Leaflet.Graticule.js"></script>
-    <!-- Full screen -->
     <script src="js/Control.FullScreen.js"></script>
-    <!-- Leaflet hash -->
     <script src="js/leaflet-hash.js"></script>
-    <!-- Spin -->
     <script src="js/spin.min.js" charset="utf-8"></script>
     <script src="js/leaflet.spin.min.js"></script>
 
@@ -518,19 +426,13 @@
                     else
                         $('select').append('<option value="' + settings[i].filename + '">' + settings[i].name + '</option>');
                 }
-
                 $('#lang-switcher').change(function () {
                     window.localStorage['defaultLanguage'] = $(this).val();
                     window.location.reload();
                 });
             }
         });
-
     </script>
-
-    <!-- <script src="js/charts.js"></script> -->
-    <!-- My custom JS -->
     <script src="js/custom.js"></script>
 </body>
-
 </html>
