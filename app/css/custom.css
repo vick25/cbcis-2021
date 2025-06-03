@@ -39,11 +39,8 @@ body {
     background-color: var(--light-neutral-bg);
     color: var(--dark-text-color);
     overflow: hidden;
-    /* Children will manage their own scroll */
     font-size: 0.95rem;
-    /* Base font size slightly adjusted */
     line-height: 1.6;
-    /* Improved line height for readability */
 }
 
 .modal {
@@ -63,18 +60,15 @@ body {
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.85);
-    /* Lighter than default for better contrast on primary */
     font-family: var(--heading-font);
-    /* Use heading font for nav links for a bit more distinction */
     padding: 0.5rem 1rem;
-    /* Ensure consistent padding */
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link:focus {
     color: var(--light-text-color);
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Subtle hover effect */
+    background-color: rgba(255, 255, 255, 0.514);
+    border-radius: 5px;
 }
 
 .navbar-dark .navbar-nav .active>.nav-link,
@@ -84,7 +78,6 @@ body {
     color: var(--light-text-color);
     background-color: #9ee4ef;
     border-radius: 5px;
-    /* Slightly darker shade of primary for active items */
 }
 
 /* Space out partner logos in navbar */
@@ -192,6 +185,7 @@ body {
 }
 
 .navbar-nav {
+    gap: 1rem;
     justify-content: space-between;
 }
 

@@ -165,7 +165,6 @@ const init = () => {
                 width: "toggle",
                 function() {
                     map.invalidateSize();
-                    map.setView([-2.131, 22.896], 5);
                 }
             });
             $(".leaflet-left").animate({ left: '0' });
@@ -177,6 +176,7 @@ const init = () => {
                 }
             });
         }
+        map.setView([-2.131, 22.896], 5);
         map.invalidateSize();
         leftSidebar = !leftSidebar;
         // });
