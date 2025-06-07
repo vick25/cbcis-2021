@@ -334,7 +334,7 @@ const init = () => {
     }
 
     async function buildCatchmentContent(idCatchment) {
-        await translate(); // Wait to the translate file
+        translate(); // Wait to the translate file
 
         if (csvData && !isNaN(idCatchment)) {
             let value = csvData[idCatchment - 1];
