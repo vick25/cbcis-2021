@@ -38,7 +38,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <!-- Load Leaflet css: http://leafletjs.com/ -->
     <link rel="stylesheet" href="css/leaflet.css">
@@ -86,7 +88,7 @@
             </button>
 
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto">
+                <menu class="navbar-nav mx-auto" role="menu">
 
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html" data-target=".navbar-collapse.in"
@@ -97,12 +99,14 @@
                         <a class="nav-link" href="./about/about.html" data-target=".navbar-collapse.in"
                             data-translation="navbar.about"></a>
                     </li>
-                    <li class="nav-item d-none d-sm-block" id="hide-list-btn">
-                        <a class="nav-link" id="list-btn" href="#" data-toggle="collapse"
-                            data-target=".navbar-collapse.in" data-translation="navbar.catchment-list"></a>
-                    </li>
-                </ul>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="collapse" data-target=".navbar-collapse.in"
+                            id="about-btn" data-translation="navbar.about"></a>
+                    </li> -->
 
+                </menu>
+
+                <!-- id="partner_logos" -->
                 <div class="navbar-brand ml-auto">
                     <img src="images/logo/logo-for-cbcis_royal-society.png" width="91" height="47" alt="Royal-Society"
                         class="d-inline-block align-top" loading="lazy">
@@ -143,9 +147,15 @@
                     <div class="sidebar-table">
                         <table class="card-table table table-hover table-striped" id="feature-list">
                             <thead hidden>
-                                <tr><th>Icon</th><tr>
-                                <tr><th>Name</th><tr>
-                                <tr><th>Chevron</th><tr>
+                                <tr>
+                                    <th>Icon</th>
+                                <tr>
+                                <tr>
+                                    <th>Name</th>
+                                <tr>
+                                <tr>
+                                    <th>Chevron</th>
+                                <tr>
                             </thead>
                             <tbody class="list scrollDiv"></tbody>
                         </table>
@@ -171,6 +181,10 @@
                 <i class="fas fa-map"></i>
             </div>
         </div>
+
+        <div class="sidebar-toggle-mini" id="show-sidebar-btn">
+            <i class="fa fa-chevron-right"></i>
+        </div>
     </div>
 
     <!-- Feature modal -->
@@ -183,16 +197,20 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="feature-info"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translation="button.close">Close</button>
+                <div class="modal-body" id="feature-info"
+                    style="font-family: var(--body-font); color: var(--dark-text-color);"></div>
+                <div class="modal-footer"
+                    style="border-top: 1px solid var(--border-color); background-color: var(--light-neutral-bg);">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translation="button.close"
+                        style="background-color: var(--secondary-color); border-color: var(--secondary-color); color: var(--dark-text-color);">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal catchment -->
-    <div class="modal fade" id="catchmentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal fade" id="catchmentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -222,9 +240,9 @@
                                             aria-selected="false" data-translation="catchment.physio"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#hydrology" id="#hydrology-tab"
-                                            data-toggle="tab" role="tab" aria-controls="disclaimer"
-                                            aria-selected="false" data-translation="catchment.hydro"></a>
+                                        <a class="nav-link" href="#hydrology" id="#hydrology-tab" data-toggle="tab"
+                                            role="tab" aria-controls="disclaimer" aria-selected="false"
+                                            data-translation="catchment.hydro"></a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#risk" id="#risk-tab" data-toggle="tab" role="tab"
@@ -232,13 +250,13 @@
                                             data-translation="catchment.risk"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#water" id="#water-tab" data-toggle="tab"
-                                            role="tab" aria-controls="disclaimer" aria-selected="false"
+                                        <a class="nav-link" href="#water" id="#water-tab" data-toggle="tab" role="tab"
+                                            aria-controls="disclaimer" aria-selected="false"
                                             data-translation="catchment.water"></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#info" id="#info-tab" data-toggle="tab"
-                                            role="tab" aria-controls="disclaimer" aria-selected="false"
+                                        <a class="nav-link" href="#info" id="#info-tab" data-toggle="tab" role="tab"
+                                            aria-controls="disclaimer" aria-selected="false"
                                             data-translation="catchment.info"></a>
                                     </li>
                                 </ul>
@@ -351,8 +369,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translation="button.close">Close</button>
+                <div class="modal-footer"
+                    style="background-color: var(--light-neutral-bg); border-top: 1px solid var(--border-color);">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translation="button.close"
+                        style="background-color: var(--secondary-color); border-color: var(--secondary-color); color: var(--dark-text-color);">Close</button>
                 </div>
             </div>
         </div>
@@ -368,7 +388,15 @@
     </script>
 
     <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Popper JS and Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
@@ -380,9 +408,12 @@
     <script src="js/leaflet.js"></script>
     <script src="js/L.Geoserver.js"></script>
     <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
-        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
-        crossorigin="anonymous"></script>
+    <!-- Charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" -->
+        integrity = "sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin = "anonymous" ></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script> -->
+    <!-- Measure -->
     <script src="js/leaflet-measure.js"></script>
     <script src="js/L.Control.ZoomBox.min.js"></script>
     <script src="js/L.Control.Basemaps.js"></script>
@@ -435,4 +466,5 @@
     </script>
     <script src="js/custom.js"></script>
 </body>
+
 </html>

@@ -87,16 +87,21 @@ const init = () => {
     }
 
     function translate() {
-        $('html').lwcTranslator({
-            languageSettingsFile: './assets/config/languages.json',
-            languageFolderPath: './assets/config/languages/',
-            attributes: {
-                textTranslation: 'data-translation',
-                attrTranslation: 'data-translation-attr'
-            },
-            async: true,
-            paragraphSupport: true,
-            defaultLanguage: window.localStorage['defaultLanguage']
+        return new Promise((resolve) => {
+            $('html').lwcTranslator({
+                languageSettingsFile: './assets/config/languages.json',
+                languageFolderPath: './assets/config/languages/',
+                attributes: {
+                    textTranslation: 'data-translation',
+                    attrTranslation: 'data-translation-attr'
+                },
+                async: true,
+                paragraphSupport: true,
+                defaultLanguage: window.localStorage['defaultLanguage'],
+                onLanguagesLoaded: function () {
+                    resolve();
+                }
+            });
         });
     }
 
@@ -161,20 +166,24 @@ const init = () => {
         // $(".left-sidebar-btn").on("click", function () {
         if (leftSidebar) {
             $("#sidebar").animate({
-                left: `-${leftSidebarWidth + 1}px`, width: "toggle", function() {
-                    map.invalidateSize();
-                    map.setView([-2.131, 22.896], 5);
-                }
+                left: `-${leftSidebarWidth + 11}px`,
+                width: "toggle",
+            }, 300, function () {
+                map.invalidateSize();
+                // Show the mini toggle button after sidebar is hidden
+                $(".sidebar-toggle-mini").fadeIn(300);
             });
             $(".leaflet-left").animate({ left: 0 });
         } else {
             $(".leaflet-left.basic-functions").animate({ left: `${leftSidebarWidth}px` });
             $("#sidebar").animate({
-                left: "0px", width: "toggle", function() {
-                    map.invalidateSize();
-                }
+                left: "0",
+                width: "toggle"
+            }, 300, function () {
+                map.invalidateSize();
             });
         }
+        map.setView([-2.131, 22.896], 5);
         leftSidebar = !leftSidebar;
         // });
         // $("#sidebar").animate({
@@ -218,55 +227,55 @@ const init = () => {
         let subset;
         let xLabels, yData;
 
-        let value = csvData[catchmentID - 1];
+        const value = csvData[catchmentID - 1];
 
-        if (id == 1) {//Land use
-            subset = Object.fromEntries(
-                Object.entries(value).filter(([key]) => ["tree_cover",
-                    "shrubs_cover",
-                    "grassland",
-                    "cropland",
-                    "reg_flood",
-                    "lichens_mo",
-                    "bare_areas",
-                    "built_up_a",
-                    "open_water"
-                ].includes(key))
-            );
-            xLabels = Object.keys(subset);
-            yData = Object.values(subset);
-        }
-
-        if (id == 2) {//Soil texture
-            subset = Object.fromEntries(
-                Object.entries(value).filter(([key]) => ["clay",
-                    "silt",
-                    "sand",
-                    "sand_c_s"
-                ].includes(key))
-            );
-            xLabels = Object.keys(subset);
-            yData = Object.values(subset);
-        }
-
-        if (id == 3) { //Climate
-            subset = Object.fromEntries(
-                Object.entries(value).filter(([key]) => ["january",
-                    "february",
-                    "march",
-                    "april",
-                    "may",
-                    "june",
-                    "july",
-                    "august",
-                    "september",
-                    "october",
-                    "november",
-                    "december"
-                ].includes(key))
-            );
-            xLabels = Object.keys(subset);
-            yData = Object.values(subset);
+        switch (id) {
+            case 1://Land use
+                subset = Object.fromEntries(
+                    Object.entries(value).filter(([key]) => ["tree_cover",
+                        "shrubs_cover",
+                        "grassland",
+                        "cropland",
+                        "reg_flood",
+                        "lichens_mo",
+                        "bare_areas",
+                        "built_up_a",
+                        "open_water"
+                    ].includes(key))
+                );
+                xLabels = Object.keys(subset);
+                yData = Object.values(subset);
+                break;
+            case 2://Soil texture
+                subset = Object.fromEntries(
+                    Object.entries(value).filter(([key]) => ["clay",
+                        "silt",
+                        "sand",
+                        "sand_c_s"
+                    ].includes(key))
+                );
+                xLabels = Object.keys(subset);
+                yData = Object.values(subset);
+                break;
+            case 3://Climate
+                subset = Object.fromEntries(
+                    Object.entries(value).filter(([key]) => ["january",
+                        "february",
+                        "march",
+                        "april",
+                        "may",
+                        "june",
+                        "july",
+                        "august",
+                        "september",
+                        "october",
+                        "november",
+                        "december"
+                    ].includes(key))
+                );
+                xLabels = Object.keys(subset);
+                yData = Object.values(subset);
+                break;
         }
 
         return [xLabels, yData];
@@ -323,8 +332,8 @@ const init = () => {
         });
     }
 
-    function buildCatchmentContent(idCatchment) {
-        translate(); //Call to the translate file
+    async function buildCatchmentContent(idCatchment) {
+        translate(); // Wait to the translate file
 
         if (csvData && !isNaN(idCatchment)) {
             let value = csvData[idCatchment - 1];
@@ -517,7 +526,7 @@ const init = () => {
                 }]
             },
             options: {
-                //                    maintainAspectRatio: false,
+                // maintainAspectRatio: false,
                 responsive: true,
                 scales: {
                     yAxes: [{
@@ -710,14 +719,13 @@ const init = () => {
         return false;
     });
 
-    $("#sidebar-toggle-btn").click(() => {
-        animateSidebar();
-        return false;
-    });
+    $(".sidebar-toggle-mini").hide();
 
-    $("#sidebar-hide-btn").click(() => {
+    // Event handlers for both buttons
+    $("#sidebar-hide-btn, .sidebar-toggle-mini").on("click", (e) => {
+        e.preventDefault();
+        $(".sidebar-toggle-mini").hide();
         animateSidebar();
-        return false;
     });
 
     $(window).resize(() => {
@@ -1500,5 +1508,6 @@ const init = () => {
     });
 };
 
+$(document).ready(() => init());
 
-window.addEventListener('DOMContentLoaded', init);
+// window.addEventListener('DOMContentLoaded', init);

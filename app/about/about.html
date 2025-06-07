@@ -39,9 +39,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous">
+    <!-- Custom -->
+    <link rel="stylesheet" href="about.css">
 </head>
 
-<body class="d-flex flex-column h-100" data-spy="scroll" data-target="#toc">
+<body class="d-flex flex-column" data-spy="scroll" data-target="#toc">
 
     <header>
         <!-- Fixed navbar -->
@@ -58,7 +60,7 @@
             </button>
 
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <menu class="navbar-nav mx-auto" role="menu">
 
                     <li class="nav-item" id="hide-list-btn">
                         <a class="nav-link" id="maps-btn" href="../index.html" data-target=".navbar-collapse.in"
@@ -69,7 +71,7 @@
                         <a class="nav-link" href="./about.html" data-target=".navbar-collapse.in" id="home-btn"
                             data-translation="navbar.about"></a>
                     </li>
-                </ul>
+                </menu>
 
                 <!-- id="partner_logos" -->
                 <div class="navbar-brand ml-auto">
@@ -378,66 +380,61 @@
                         gestion intégrée des ressources en eau à l’échelle locale et transfrontalière.</p>
 
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mx-auto mb-2">
-                                    <img src="../images/electricite.png" class="rounded img-fluid img-thumbnail"
+                        <div class="row justify-content-center">
+                            <!-- First row -->
+                            <div class="col-sm-12 col-md-4 mb-5">
+                                <div class="position-relative">
+                                    <img src="../images/electricite.png" class="rounded img-fluid img-thumbnail w-100"
                                         alt="Hydroelectricité">
-                                    <div
-                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
-                                        <p class="text-warning font-weight-bold">Hydroelectricité</p>
+                                    <div class="position-absolute bottom-0 start-0 w-100 text-center p-2">
+                                        <p class="text-warning font-weight-bold mb-0">Hydroelectricité</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="mx-auto mb-2">
-                                    <img src="../images/agriculture.png" class="rounded img-fluid img-thumbnail"
+                            <div class="col-sm-12 col-md-4 mb-5">
+                                <div class="position-relative">
+                                    <img src="../images/agriculture.png" class="rounded img-fluid img-thumbnail w-100"
                                         alt="Agriculture">
-                                    <div
-                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
-                                        <p class="text-warning font-weight-bold">Agriculture</p>
+                                    <div class="position-absolute bottom-0 start-0 w-100 text-center p-2">
+                                        <p class="text-warning font-weight-bold mb-0">Agriculture</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="mx-auto mb-2">
-                                    <img src="../images/domestique.png" class="rounded img-fluid img-thumbnail"
+                            <div class="col-sm-12 col-md-4 mb-5">
+                                <div class="position-relative">
+                                    <img src="../images/domestique.png" class="rounded img-fluid img-thumbnail w-100"
                                         alt="Usage domestique">
-                                    <div
-                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
-                                        <p class="text-warning font-weight-bold">Usage domestique</p>
+                                    <div class="position-absolute bottom-0 start-0 w-100 text-center p-2">
+                                        <p class="text-warning font-weight-bold mb-0">Usage domestique</p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <div class="mx-auto mb-2">
-                                    <img src="../images/peche.png" class="rounded img-fluid img-thumbnail" alt="Peche">
-                                    <div
-                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
-                                        <p class="text-warning font-weight-bold">Pêche</p>
+                            <!-- Second row -->
+                            <div class="col-sm-12 col-md-4 mb-5">
+                                <div class="position-relative">
+                                    <img src="../images/peche.png" class="rounded img-fluid img-thumbnail w-100"
+                                        alt="Peche">
+                                    <div class="position-absolute bottom-0 start-0 w-100 text-center p-2">
+                                        <p class="text-warning font-weight-bold mb-0">Pêche</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="mx-auto mb-2">
-                                    <img src="../images/environnement.png" class="rounded img-fluid img-thumbnail"
+                            <div class="col-sm-12 col-md-4 mb-5">
+                                <div class="position-relative">
+                                    <img src="../images/environnement.png" class="rounded img-fluid img-thumbnail w-100"
                                         alt="Environnement">
-                                    <div
-                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
-                                        <p class="text-warning font-weight-bold">Environnement</p>
+                                    <div class="position-absolute bottom-0 start-0 w-100 text-center p-2">
+                                        <p class="text-warning font-weight-bold mb-0">Environnement</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="mx-auto mb-2">
-                                    <img src="../images/transport.png" class="rounded img-fluid img-thumbnail"
+                            <div class="col-sm-12 col-md-4 mb-5">
+                                <div class="position-relative">
+                                    <img src="../images/transport.png" class="rounded img-fluid img-thumbnail w-100"
                                         alt="Transport">
-                                    <div
-                                        class="card-img-overlay text-white d-flex justify-content-center align-items-end">
-                                        <p class="text-warning font-weight-bold">Transport</p>
+                                    <div class="position-absolute bottom-0 start-0 w-100 text-center p-2">
+                                        <p class="text-warning font-weight-bold mb-0">Transport</p>
                                     </div>
                                 </div>
                             </div>
@@ -535,7 +532,7 @@
     </main>
 
     <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- Language -->
     <script src="../js/lwcTranslator.min.js"></script>
@@ -549,7 +546,7 @@
     <script src="../js/bootstrap-toc.js"></script>
 
     <!-- Leaflet -->
-    <script src="../js/leaflet.js"></script>
+    <!-- <script src="../js/leaflet.js"></script> -->
 
     <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
@@ -582,6 +579,7 @@
             }
         });
     </script>
+    <script src="about.js"></script>
 </body>
 
 </html>
