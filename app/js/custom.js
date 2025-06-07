@@ -163,21 +163,23 @@ const init = () => {
             $("#sidebar").animate({
                 left: `-${leftSidebarWidth + 11}px`,
                 width: "toggle",
-                function() {
-                    map.invalidateSize();
-                }
+            }, 300, function () {
+                map.invalidateSize();
+                // Show the mini toggle button after sidebar is hidden
+                $(".sidebar-toggle-mini").fadeIn(300);
             });
             $(".leaflet-left").animate({ left: '0' });
             $(".leaflet-left .basic-functions").animate({ left: '10px' });
         } else {
             $(".leaflet-left.basic-functions").animate({ left: `${leftSidebarWidth + 13}px` });
             $("#sidebar").animate({
-                left: "0", width: "toggle", function() {
-                }
+                left: "0",
+                width: "toggle"
+            }, 300, function () {
+                map.invalidateSize();
             });
         }
         map.setView([-2.131, 22.896], 5);
-        map.invalidateSize();
         leftSidebar = !leftSidebar;
         // });
         // $("#sidebar").animate({
@@ -713,14 +715,13 @@ const init = () => {
         return false;
     });
 
-    $("#sidebar-toggle-btn").click(() => {
-        animateSidebar();
-        return false;
-    });
+    $(".sidebar-toggle-mini").hide();
 
-    $("#sidebar-hide-btn").click(() => {
+    // Event handlers for both buttons
+    $("#sidebar-hide-btn, .sidebar-toggle-mini").on("click", (e) => {
+        e.preventDefault();
+        $(".sidebar-toggle-mini").hide();
         animateSidebar();
-        return false;
     });
 
     $(window).resize(() => {

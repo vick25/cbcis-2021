@@ -383,6 +383,7 @@ body {
     background-color: var(--light-neutral-bg);
     border-right: 1px solid var(--border-color);
     margin-right: 5px;
+    transition: all 0.3s ease;
 }
 
 #features {
@@ -882,3 +883,29 @@ input[type="checkbox"] {
 .legend { (code for legend if needed, currently commented out) }
 #loading { (code for loading indicator if needed, currently commented out) }
 */
+
+/* Add to the end of custom.css */
+.sidebar-toggle-mini {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    z-index: 1000;
+    background: var(--light-text-color);
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: none;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.sidebar-toggle-mini:hover {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    transform: translateX(2px);
+}
+
+.sidebar-toggle-mini i {
+    font-size: 1.2rem;
+}
