@@ -87,16 +87,21 @@ const init = () => {
     }
 
     function translate() {
-        $('html').lwcTranslator({
-            languageSettingsFile: './assets/config/languages.json',
-            languageFolderPath: './assets/config/languages/',
-            attributes: {
-                textTranslation: 'data-translation',
-                attrTranslation: 'data-translation-attr'
-            },
-            async: true,
-            paragraphSupport: true,
-            defaultLanguage: window.localStorage['defaultLanguage']
+        return new Promise((resolve) => {
+            $('html').lwcTranslator({
+                languageSettingsFile: './assets/config/languages.json',
+                languageFolderPath: './assets/config/languages/',
+                attributes: {
+                    textTranslation: 'data-translation',
+                    attrTranslation: 'data-translation-attr'
+                },
+                async: true,
+                paragraphSupport: true,
+                defaultLanguage: window.localStorage['defaultLanguage'],
+                onLanguagesLoaded: function () {
+                    resolve();
+                }
+            });
         });
     }
 
@@ -328,8 +333,8 @@ const init = () => {
         });
     }
 
-    function buildCatchmentContent(idCatchment) {
-        translate(); //Call to the translate file
+    async function buildCatchmentContent(idCatchment) {
+        await translate(); // Wait to the translate file
 
         if (csvData && !isNaN(idCatchment)) {
             let value = csvData[idCatchment - 1];
