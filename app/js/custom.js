@@ -221,55 +221,55 @@ const init = () => {
         let subset;
         let xLabels, yData;
 
-        let value = csvData[catchmentID - 1];
+        const value = csvData[catchmentID - 1];
 
-        if (id == 1) {//Land use
-            subset = Object.fromEntries(
-                Object.entries(value).filter(([key]) => ["tree_cover",
-                    "shrubs_cover",
-                    "grassland",
-                    "cropland",
-                    "reg_flood",
-                    "lichens_mo",
-                    "bare_areas",
-                    "built_up_a",
-                    "open_water"
-                ].includes(key))
-            );
-            xLabels = Object.keys(subset);
-            yData = Object.values(subset);
-        }
-
-        if (id == 2) {//Soil texture
-            subset = Object.fromEntries(
-                Object.entries(value).filter(([key]) => ["clay",
-                    "silt",
-                    "sand",
-                    "sand_c_s"
-                ].includes(key))
-            );
-            xLabels = Object.keys(subset);
-            yData = Object.values(subset);
-        }
-
-        if (id == 3) { //Climate
-            subset = Object.fromEntries(
-                Object.entries(value).filter(([key]) => ["january",
-                    "february",
-                    "march",
-                    "april",
-                    "may",
-                    "june",
-                    "july",
-                    "august",
-                    "september",
-                    "october",
-                    "november",
-                    "december"
-                ].includes(key))
-            );
-            xLabels = Object.keys(subset);
-            yData = Object.values(subset);
+        switch (id) {
+            case 1://Land use
+                subset = Object.fromEntries(
+                    Object.entries(value).filter(([key]) => ["tree_cover",
+                        "shrubs_cover",
+                        "grassland",
+                        "cropland",
+                        "reg_flood",
+                        "lichens_mo",
+                        "bare_areas",
+                        "built_up_a",
+                        "open_water"
+                    ].includes(key))
+                );
+                xLabels = Object.keys(subset);
+                yData = Object.values(subset);
+                break;
+            case 2://Soil texture
+                subset = Object.fromEntries(
+                    Object.entries(value).filter(([key]) => ["clay",
+                        "silt",
+                        "sand",
+                        "sand_c_s"
+                    ].includes(key))
+                );
+                xLabels = Object.keys(subset);
+                yData = Object.values(subset);
+                break;
+            case 3://Climate
+                subset = Object.fromEntries(
+                    Object.entries(value).filter(([key]) => ["january",
+                        "february",
+                        "march",
+                        "april",
+                        "may",
+                        "june",
+                        "july",
+                        "august",
+                        "september",
+                        "october",
+                        "november",
+                        "december"
+                    ].includes(key))
+                );
+                xLabels = Object.keys(subset);
+                yData = Object.values(subset);
+                break;
         }
 
         return [xLabels, yData];
@@ -520,7 +520,7 @@ const init = () => {
                 }]
             },
             options: {
-                //                    maintainAspectRatio: false,
+                // maintainAspectRatio: false,
                 responsive: true,
                 scales: {
                     yAxes: [{
@@ -1503,5 +1503,6 @@ const init = () => {
     });
 };
 
+$(document).ready(() => init());
 
-window.addEventListener('DOMContentLoaded', init);
+// window.addEventListener('DOMContentLoaded', init);
