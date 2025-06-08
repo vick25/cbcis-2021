@@ -1078,12 +1078,18 @@ const init = () => {
         }
     });
 
+    // Add initial loading text to feature list
+    $("#feature-list tbody").html('<tr><td colspan="3" class="text-center"><i class="fa fa-spinner fa-spin"></i> Loading catchments...</td></tr>');
+
     const catchURL = `${rootUrl}ows?service=WMS&version=1.1.0&request=GetMap&layers=crrebac%3Acb_cis_1740_geo&bbox=11.8403930664063%2C-13.459098815918%2C34.0189628601074%2C9.26166725158691&width=749&height=768&srs=EPSG%3A4326&format=geojson`;
 
     let loadCbcis = $.getJSON(catchURL, function (data) {
         return gridCatchmentsData = data;
     });
     $.when(loadCbcis).done(function () {
+        // Clear the loading text
+        $("#feature-list tbody").empty();
+
         sizeSidebar();
 
         /* Fit map to Congo basin bounds */
